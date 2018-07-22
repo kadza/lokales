@@ -1,9 +1,9 @@
 import 'package:url_launcher/url_launcher.dart';
-import 'location.dart';
 import 'dart:io';
+import 'package:latlong/latlong.dart';
 
-class NavigationLanucher{
-  launchUrl(Location location) async {
+class NavigationLauncher{
+  launchUrl(LatLng location) async {
     var url = _getUrl(location);
     if (await canLaunch(url)) {
       await launch(url);
@@ -12,7 +12,7 @@ class NavigationLanucher{
     }
   }
 
-  String _getUrl(Location location){
+  String _getUrl(LatLng location){
     if(Platform.isIOS){
       return "maps://?saddr=Current%20Location&daddr=${location.latitude},${location.longitude}";
     }

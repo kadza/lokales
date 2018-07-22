@@ -1,4 +1,5 @@
 import 'location.dart';
+import 'package:latlong/latlong.dart';
 
 class Spot {
   const Spot({
@@ -10,7 +11,7 @@ class Spot {
   });
   final String name;
   final List<String> validWindDirections;
-  final Location location;
+  final LatLng location;
   final ImageLocation icmImageLocation;
   final Uri windguruUrl;
 }

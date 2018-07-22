@@ -1,11 +1,11 @@
-import '../location.dart';
 import '../static_maps_provider.dart';
 import 'details_card.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:latlong/latlong.dart';
 
 class LocationCard extends StatelessWidget {
-  final Location location;
+  final LatLng location;
 
   LocationCard({
     Key key,
