@@ -1,6 +1,8 @@
-import 'details_card.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../l10n/app_localization.dart';
+import 'details_card.dart';
 
 class WindDirectionCard extends StatelessWidget {
   final List<String> windDirections;
@@ -13,7 +15,7 @@ class WindDirectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new DetailsCard(
-      title: "Kierunki wiatru",
+      title: AppLocalizations.of(context).windDirections,
       child: new Text(windDirections.join(", ")),
     );
   }

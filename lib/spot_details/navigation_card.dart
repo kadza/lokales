@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong/latlong.dart';
 
+import '../l10n/app_localization.dart';
 import '../navigation_launcher.dart';
 import 'details_card.dart';
 
@@ -22,16 +23,16 @@ class NavigationCard extends StatelessWidget {
     var goHome = () => navigationLauncher.launchUrl(this.home);
 
     return new DetailsCard(
-        title: 'Nawigacja',
+        title: AppLocalizations.of(context).navigation,
         child: new Row(
           children: <Widget>[
             RaisedButton(
               onPressed: goToDestination,
-              child: Text('Na spot'),
+              child: Text(AppLocalizations.of(context).goToSpot),
             ),
             RaisedButton(
               onPressed: goHome,
-              child: Text('Do domu'),
+              child: Text(AppLocalizations.of(context).goHome),
             ),
           ],
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

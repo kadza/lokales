@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+
+import '../l10n/app_localization.dart';
 import 'details_card.dart';
 
 class WebViewCard extends StatelessWidget {
@@ -38,7 +40,7 @@ class WebViewCard extends StatelessWidget {
       title: title,
       child: RaisedButton(
         onPressed: pushWebView,
-        child: Text('Otwórz'),
+        child: Text(AppLocalizations.of(context).open),
       ),
     );
   }

@@ -13,7 +13,7 @@ class SettingsRepository {
     return await prefs.setString('homePosition', this._serializeMapPosition(settings.homePosition));
   }
 
-  Future getSettings() async {
+  Future<Settings> getSettings() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var homePositionString = prefs.getString('homePosition');
     print(homePositionString);
