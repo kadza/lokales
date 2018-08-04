@@ -10,6 +10,10 @@ class En {
     'go-to-spot': 'Go to spot',
     'go-home': 'Go home',
     'open': 'Open',
-    'wind-directions': "Wind directions",
+    'wind-directions': 'Wind directions',
+    'description': 'Description',
+    'zalew-sulejowski-description': 'TBD',
+    'czarnocin-description': 'TBD',
+    'chalupy-description': 'TBD',
   };
 }

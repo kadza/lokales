@@ -9,6 +9,7 @@ import 'location_card.dart';
 import 'navigation_card.dart';
 import 'web_view_card.dart';
 import 'wind_direction_card.dart';
+import 'description_card.dart';
 
 class SpotDetailsPage extends StatelessWidget {
   final Spot spot;
@@ -38,6 +39,7 @@ class SpotDetailsPage extends StatelessWidget {
                   destination: this.spot.location, home: this.homeLocation),
               LocationCard(location: this.spot.location),
               WindDirectionCard(windDirections: this.spot.validWindDirections),
+              DescriptionCard(description: this.spot.description),
             ],
           ),
         ),

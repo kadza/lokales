@@ -97,6 +97,7 @@ class _AppHomeState extends State<AppHome> with WidgetsBindingObserver {
             validWindDirections: ["NW", "SE"],
             location: LatLng(51.608700, 19.699706),
             windguruUrl: Uri.parse("https://www.windguru.cz/4880"),
+            description: AppLocalizations.of(context).czarnocinDescription,
           ),
           new Spot(
             name: 'Zalew Sulejowski - Karolinów',
@@ -104,6 +105,7 @@ class _AppHomeState extends State<AppHome> with WidgetsBindingObserver {
             validWindDirections: ["SW"],
             location: new LatLng(51.451805, 19.971582),
             windguruUrl: Uri.parse("https://www.windguru.cz/32462"),
+            description: AppLocalizations.of(context).zalewSulejowskiDescription,
           ),
           new Spot(
             name: 'Chałupy - Chałupy 6',
@@ -111,6 +113,7 @@ class _AppHomeState extends State<AppHome> with WidgetsBindingObserver {
             validWindDirections: ["W", "SW", "S", "SE"],
             location: new LatLng(54.761199, 18.499220),
             windguruUrl: Uri.parse("https://www.windguru.cz/597178"),
+            description: AppLocalizations.of(context).chalupyDescription,
           ),
         ],
       ),
