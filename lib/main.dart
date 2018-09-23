@@ -10,10 +10,15 @@ import 'settings/settings_drawer.dart';
 import 'settings/settings_repository.dart';
 import 'spot.dart';
 import 'spot_list.dart';
+import 'spot_details/spot_details_settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:async';
 
 void main() => runApp(new App());
 
 class App extends StatelessWidget {
+
+
   Widget build(BuildContext context) {
     return new MaterialApp(
       localizationsDelegates: [
@@ -41,16 +46,23 @@ class AppHome extends StatefulWidget {
 
 class _AppHomeState extends State<AppHome> with WidgetsBindingObserver {
   Settings _settings = new Settings(
-    homePosition: new MapPosition(center: new LatLng(51.0, 19.0), zoom: 15.0),
+    homePosition: new MapPosition(
+      center: new LatLng(51.0, 19.0), 
+      zoom: 15.0
+    ),
+    spotDetailsSettings: new SpotDetailsSettings(
+      isDescriptionVisible: true,
+      isLocationVisible: true,
+      isWindDirectionsVisible: true,
+      isWindguruVisible: true,
+      isIcmVisible: true,
+    )
   );
-  SettingsRepository settingsRepository = new SettingsRepository();
 
   @override
   void initState() {
     super.initState();
-    this.settingsRepository.getSettings().then((settings) => setState(() {
-          if (settings.homePosition != null) this._settings = settings;
-        }));
+    this._readSettings();
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -61,16 +73,36 @@ class _AppHomeState extends State<AppHome> with WidgetsBindingObserver {
   }
 
   @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    setState(() {
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
+    setState((){
       switch (state) {
         case AppLifecycleState.suspending:
         case AppLifecycleState.paused:
-          this.settingsRepository.setSettings(this._settings);
+          this._saveSettings();
           break;
         default:
       }
     });
+  }
+
+  Future<SettingsRepository> _getSettingsRepository() async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    return new SettingsRepository(sharedPreferences: sharedPreferences);
+  }
+
+  Future _saveSettings() async {
+    final settingsRepository = await _getSettingsRepository();
+    await settingsRepository.setSettings(this._settings);
+  }
+
+  Future _readSettings() async {
+    final settingsRepository = await _getSettingsRepository();
+    final settings =  settingsRepository.getSettings();
+    if (settings != null) {
+      setState(() {
+      this._settings = settings;              
+            });
+    }
   }
 
   void _onHomePositionChanged(MapPosition homePosition) {
