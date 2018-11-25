@@ -13,7 +13,6 @@ class MockSharedPreferences extends Mock implements SharedPreferences {}
 
 void main() {
   SharedPreferences sharedPreferences;
-  final homePosition = new MapPosition(center: new LatLng(0.0, 0.0));
   final spotSettings = new SpotDetailsSettings(
       isDescriptionVisible: false,
       isIcmVisible: false,
