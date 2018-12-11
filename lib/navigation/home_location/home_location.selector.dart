@@ -1,4 +1,6 @@
-import 'package:flutter_map/flutter_map.dart';
+import '../../map/dynamic_map.model.dart';
+
 import './home_location.state.dart';
 
-MapPosition homeLocationSelector(HomeLocationState state) => state.homeLocation;
+CameraPosition homeLocationSelector(HomeLocationStateContainer state) => 
+  state.homeLocationState.homeLocation;

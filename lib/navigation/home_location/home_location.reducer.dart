@@ -1,12 +1,15 @@
-import 'package:flutter_map/flutter_map.dart';
 import 'package:redux/redux.dart';
 
-import './home_location.action.dart';
+import '../../map/dynamic_map.action.dart';
+import 'home_location.state.dart';
 
-final navigationReducer = combineReducers<MapPosition>([
-  TypedReducer<MapPosition, SetHomePositionAction>(_setHomePosition)
+final homeLocationReducer = combineReducers<HomeLocationState>([
+  TypedReducer<HomeLocationState, AnimateMapAction>(_setHomeLocation)
 ]);
 
-MapPosition _setHomePosition(MapPosition position, action){
-  return action.homePosition;
+HomeLocationState _setHomeLocation(HomeLocationState state, AnimateMapAction animateMapAction){
+  if(animateMapAction.clientId == "homeLocation")
+    return HomeLocationState(homeLocation: animateMapAction.cameraPosition);
+  
+  return state;
 }

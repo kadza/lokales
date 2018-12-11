@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localization.dart';
-import '../containers/home_location.container.dart';
+import '../navigation/home_location/home_location.container.dart';
 import 'spot_view.dart';
 
 class SettingsDrawer extends Drawer {

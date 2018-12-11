@@ -1,27 +1,33 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter_map/flutter_map.dart';
 import 'package:redux/redux.dart';
 
 import './home_location.action.dart';
-import './home_location.state.dart';
 import './home_location.selector.dart';
+import './home_location.state.dart';
+import '../../map/dynamic_map.model.dart';
+import '../../map/dynamic_map.selector.dart';
+import '../../map/dynamic_map.state.dart';
 
+@immutable
 class HomeLocationViewModel {
-  final MapPosition homePosition;
-  final Function onHomePositionChanged;
+  final CameraPosition homeLocation;
+  final Store<DynamicMapStateContainer> dynamicMapStateStore;
 
-  HomeLocationViewModel({
-    @required this.homePosition,
-    @required this.onHomePositionChanged,
-  });
+  HomeLocationViewModel({@required this.homeLocation, @required this.dynamicMapStateStore});
 
-  factory HomeLocationViewModel.from(Store<HomeLocationState> store) {
-    final homePosition = homeLocationSelector(store.state);
+  factory HomeLocationViewModel.from(
+      Store<HomeLocationStateContainer> homeLocationStateStore, 
+      Store<DynamicMapStateContainer> dynamicMapStateStore) {
+    final homeLocation = homeLocationSelector(homeLocationStateStore.state);
 
     return HomeLocationViewModel(
-      homePosition: homePosition,
-      onHomePositionChanged: (homePosition) =>
-          store.dispatch(SetHomePositionAction(homePosition)),
+      homeLocation: homeLocation, 
+      dynamicMapStateStore: dynamicMapStateStore
     );
+  }
+
+  void setHomeLocation() {
+    var cameraPosition = cameraPositionMapSelector(dynamicMapStateStore.state)["homeLocation"];
+    dynamicMapStateStore.dispatch(SetHomeLocationAction(homeLocation: cameraPosition));
   }
 }

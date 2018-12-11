@@ -6,7 +6,7 @@ import '../l10n/app_localization.dart';
 import '../spot.dart';
 import 'icm_weather_forecast_cart.dart';
 import 'location_card.dart';
-import 'navigation_card.dart';
+import './navigation_card/navigation_card.container.dart';
 import 'web_view_card.dart';
 import 'wind_direction_card.dart';
 import 'description_card.dart';
@@ -35,8 +35,7 @@ class SpotDetailsPage extends StatelessWidget {
               WebViewCard(
                   title: AppLocalizations.of(context).windguruWeatherForecast,
                   url: this.spot.windguruUrl),
-              NavigationCard(
-                  destination: this.spot.location, home: this.homeLocation),
+              NavigationCard(),
               LocationCard(location: this.spot.location),
               WindDirectionCard(windDirections: this.spot.validWindDirections),
               DescriptionCard(description: this.spot.description),

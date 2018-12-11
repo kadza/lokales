@@ -1,38 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_redux_dev_tools/flutter_redux_dev_tools.dart';
 import 'package:redux_dev_tools/redux_dev_tools.dart';
+import 'package:redux_epics/redux_epics.dart';
+import 'package:redux_remote_devtools/redux_remote_devtools.dart';
 
 import './app.dart';
 import './reducer.dart';
 import './state.dart';
+import 'navigation/navigation_launcher/navigation_launcher.epics.dart';
 
-// The Dev version of your app. It will build a DevToolsStore instead of a
-// normal Store. In addition, it will provide a DevDrawer for the app, which
-// will contain the ReduxDevTools themselves.
-void main() {
+void main() async {
+  final epicMiddleware = EpicMiddleware(launchNavigationEpic);
+  
+  final remoteDevtoolsMiddleware = RemoteDevToolsMiddleware('192.168.1.176:8000');
+  await remoteDevtoolsMiddleware.connect();
+  
   final store = DevToolsStore<AppState>(
     appStateReducer,
     initialState: AppState.loading(),
+    middleware: [epicMiddleware, remoteDevtoolsMiddleware],
   );
+  
+  remoteDevtoolsMiddleware.store = store;
 
-  // A ReduxDevToolsApp will recompute the state of your app on Hot Reload.
-  // This means if you change the way a reducer works, it will replay all the
-  // actions through the reducer to recompute the new state!
-  runApp(new ReduxDevToolsContainer(
-    store: store,
-    child: new App(
+  runApp(new App(
       store: store,
-      // Since we want a Dev Drawer that includes the Redux Dev Tools, we'll
-      // provide a function that returns one! In production, notice we don't
-      // provide one.
-      devDrawerBuilder: (context) {
-        return new Drawer(
-          child: new Padding(
-            padding: new EdgeInsets.only(top: 24.0),
-            child: new ReduxDevTools(store),
-          ),
-        );
-      },
-    ),
   ));
 }
