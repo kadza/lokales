@@ -67,16 +67,9 @@ class AppLocalizations {
     return _localizedValues[locale.languageCode]['description'];
   }
 
-  String get zalewSulejowskiDescription {
-    return _localizedValues[locale.languageCode]['zalew-sulejowski-description'];
-  }
-  
-  String get czarnocinDescription {
-    return _localizedValues[locale.languageCode]['czarnocin-description'];
-  }
-  
-  String get chalupyDescription {
-    return _localizedValues[locale.languageCode]['chalupy-description'];
+  String spotDescription(String name) {
+    final key = "$name-description";
+    return _localizedValues[locale.languageCode][key];
   }
 }
 

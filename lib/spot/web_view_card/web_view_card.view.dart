@@ -2,17 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-import '../l10n/app_localization.dart';
-import 'details_card.dart';
+import './web_view_card.view_model.dart';
+import '../../l10n/app_localization.dart';
+import '../details_card.dart';
 
-class WebViewCard extends StatelessWidget {
-  final Uri url;
-  final String title;
+class WebViewCardView extends StatelessWidget {
+  final WebViewCardViewModel viewModel;
 
-  WebViewCard({
+  WebViewCardView({
     Key key,
-    @required this.url,
-    @required this.title,
+    @required this.viewModel,
   }) : super(key: key);
 
   void _pushWebView(BuildContext context) {
@@ -20,9 +19,9 @@ class WebViewCard extends StatelessWidget {
       new MaterialPageRoute(
         builder: (context) {
           return new WebviewScaffold(
-            url: url.toString(),
+            url: viewModel.url.toString(),
             appBar: new AppBar(
-              title: new Text(title),
+              title: new Text(viewModel.title),
             ),
             withZoom: true,
             withLocalStorage: true,
@@ -37,7 +36,7 @@ class WebViewCard extends StatelessWidget {
     var pushWebView = () => _pushWebView(context);
 
     return new DetailsCard(
-      title: title,
+      title: viewModel.title,
       child: RaisedButton(
         onPressed: pushWebView,
         child: Text(AppLocalizations.of(context).open),

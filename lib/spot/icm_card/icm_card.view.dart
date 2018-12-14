@@ -3,16 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-import '../l10n/app_localization.dart';
-import '../location.dart';
-import 'details_card.dart';
+import './icm_card.view_model.dart';
+import '../../l10n/app_localization.dart';
+import '../../row_column.model.dart';
+import '../details_card.dart';
 
-class IcmWeatherForecastCard extends StatelessWidget {
-  final ImageLocation location;
+class IcmCardView extends StatelessWidget {
+  final IcmCardViewModel viewModel;
 
-  IcmWeatherForecastCard({
+  IcmCardView({
     Key key,
-    @required this.location,
+    @required this.viewModel,
   }) : super(key: key);
 
   @override
@@ -21,13 +22,13 @@ class IcmWeatherForecastCard extends StatelessWidget {
       title: AppLocalizations.of(context).icmWeatherForecast,
       child: new FadeInImage.memoryNetwork(
         placeholder: kTransparentImage,
-        image: "${_getIcmForecastUri(location)}&${_getDateQueryParamater()}",
+        image: "${_getIcmForecastUri(viewModel.location)}&${_getDateQueryParamater()}",
         height: 350.0,
       ),
     );
   }
 
-  String _getIcmForecastUri(ImageLocation location) {
+  String _getIcmForecastUri(RowColumn location) {
     return "http://www.meteo.pl/um/metco/mgram_pict.php?ntype=0u&row=${location.row}&col=${location.column}&lang=pl";
   }
 

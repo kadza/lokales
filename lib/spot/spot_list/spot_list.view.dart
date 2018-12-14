@@ -1,45 +1,50 @@
 import 'package:flutter/material.dart';
-import 'spot.dart';
-import 'spot_details/spot_details_page.dart';
-import 'package:latlong/latlong.dart';
 
-typedef void SpotTappedCallback(Spot spot, LatLng homeLocaiton);
+import './spot_list.view_model.dart';
+import '../spot.model.dart';
+import '../spot_details_page/spot_details_page.container.dart';
+
+typedef void SpotTappedCallback(Spot spot);
 
 class SpotListItem extends StatelessWidget {
-  SpotListItem({Spot spot, this.onSpotTapped, this.homeLocation})
+  SpotListItem({@required Spot spot, @required this.onSpotTapped})
       : spot = spot,
         super(key: new ObjectKey(spot));
 
   final Spot spot;
-  final LatLng homeLocation;
   final SpotTappedCallback onSpotTapped;
 
   @override
   Widget build(BuildContext context) {
     return new ListTile(
       onTap: () {
-        onSpotTapped(spot, homeLocation);
+        onSpotTapped(spot);
       },
       title: new Text(spot.name),
     );
   }
 }
 
-class SpotList extends StatefulWidget {
-  SpotList({Key key, this.spots, this.homeLocation}) : super(key: key);
-  final List<Spot> spots;
-  final LatLng homeLocation;
+class SpotListView extends StatefulWidget {
+  final SpotListViewModel viewModel;
+
+  SpotListView({
+    Key key, 
+    this.viewModel
+  }) : super(key: key);
 
   @override
   _SpotListState createState() => new _SpotListState();
 }
 
-class _SpotListState extends State<SpotList> {
-  void _pushSpotDetailsPage(Spot spot, LatLng homeLocation) {
+class _SpotListState extends State<SpotListView> {
+  void _pushSpotDetailsPage(Spot spot) {
+    widget.viewModel.selectSpot(spot.id);
+
     Navigator.of(context).push(
       new MaterialPageRoute(
         builder: (context) {
-          return SpotDetailsPage(spot: spot, homeLocation: homeLocation,);
+          return SpotDetailsPage();
         },
       ),
     );
@@ -49,11 +54,10 @@ class _SpotListState extends State<SpotList> {
   Widget build(BuildContext context) {
     return  new ListView(
       padding: new EdgeInsets.symmetric(vertical: 8.0),
-      children: widget.spots.map((Spot spot) {
+      children: widget.viewModel.spotList.map((Spot spot) {
         return new SpotListItem(
           spot: spot,
           onSpotTapped: _pushSpotDetailsPage,
-          homeLocation: widget.homeLocation,
         );
       }).toList(),
     );

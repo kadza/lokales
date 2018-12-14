@@ -1,22 +1,23 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:latlong/latlong.dart';
 
-import '../l10n/app_localization.dart';
-import '../static_maps_provider.dart';
-import 'details_card.dart';
+import './location_card.view_model.dart';
+import '../../l10n/app_localization.dart';
+import '../../static_maps_provider.dart';
+import '../details_card.dart';
 
-class LocationCard extends StatelessWidget {
-  final LatLng location;
+class LocationCardView extends StatelessWidget {
+  final LocationCardViewModel viewModel;
 
-  LocationCard({
+  LocationCardView({
     Key key,
-    @required this.location,
+    @required this.viewModel,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var locations = new List();
+    final location = viewModel.location.target;
     locations.add({"latitude": location.latitude, "longitude": location.longitude});
     locations.add({"latitude": location.latitude, "longitude": location.longitude});
     var apiKey = "AIzaSyAZO7rzoyHXvWtpl81vGwDtU1udaykZbaA";

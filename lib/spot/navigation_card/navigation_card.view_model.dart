@@ -4,6 +4,8 @@ import 'package:redux/redux.dart';
 import '../../navigation/home_location/home_location.selector.dart';
 import '../../navigation/home_location/home_location.state.dart';
 import '../../navigation/navigation_launcher/navigation_launcher.action.dart';
+import '../spot.selector.dart';
+import '../spot.state.dart';
 
 class NavigationCardViewModel {
   final Function goHome;
@@ -14,15 +16,17 @@ class NavigationCardViewModel {
     @required this.goToSpot,
   });
 
-  factory NavigationCardViewModel.from(Store<HomeLocationStateContainer> store) {
-    final homeLocation = homeLocationSelector(store.state);
-    final spotLocation = homeLocationSelector(store.state);
+  factory NavigationCardViewModel.from(
+    Store<HomeLocationStateContainer> homeLocationStateStore,
+    Store<SpotStateContainer> spotStateStore) {
+    final homeLocation = homeLocationSelector(homeLocationStateStore.state);
+    final spot = selectedSpotSelector(spotStateStore.state);
 
     return NavigationCardViewModel(
       goHome: () =>
-        store.dispatch(LaunchNavigationAction(destinationLocation: homeLocation.target)),
+        spotStateStore.dispatch(LaunchNavigationAction(destinationLocation: homeLocation.target)),
       goToSpot: () => 
-        store.dispatch(LaunchNavigationAction(destinationLocation: spotLocation.target)),
+        spotStateStore.dispatch(LaunchNavigationAction(destinationLocation: spot.location.target)),
     );
   }
 }
