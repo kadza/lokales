@@ -3,7 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-import './spot/spot_list_page/spot_list_page.container.dart';
+import './spot/spot_list/spot_list.container.dart';
 import 'l10n/app_localization.dart';
 import 'settings/settings_drawer.dart';
 import 'state.dart';
@@ -60,7 +60,7 @@ class AppContent extends StatelessWidget {
         ),
         drawer: new SettingsDrawer(),
         //endDrawer: devDrawerBuilder != null ? devDrawerBuilder(context) : null,
-        body: new SpotListPage(),
+        body: new SpotList(),
       ),
     );
   }
