@@ -10,6 +10,12 @@ I'm creating this app because:
 For help getting started with Flutter, view our online
 [documentation](https://flutter.io/).
 
+## Icon
+I'm not a graphic desginer, but the app needs to have a logo. One of the appraches is to harness the golden ratio to design the icon:
+* Idea explained, chapter 5: https://www.canva.com/learn/what-is-the-golden-ratio/
+* How to do it: https://www.youtube.com/watch?v=1hhAXrxVMeU
+* Nice utility tool that generates icons based on a template: https://pub.dartlang.org/packages/flutter_launcher_icons
+
 ## Architecture
 Great page: https://github.com/brianegan/flutter_architecture_samples
 
@@ -30,9 +36,9 @@ Pros:
 
 Cons
 * FlutterRedux https://pub.dartlang.org/packages/flutter_redux 
-  ** Wiring state change to a widget, takes so much fuss ... If you compare it to e.g. angular + ngrx it's much simpler there. 
-  ** The other thing is that using the store provider I was able to get the store exactly of type Store<AppState> only. If the AppState was of type ISubState, I was not able to get the Store<ISubState>. The store is being passed using InheritedWidget https://docs.flutter.io/flutter/widgets/InheritedWidget-class.html and it's prbably its constraint.
-  TODO: analyze the topic deeper
+  * Wiring state change to a widget, takes so much fuss ... If you compare it to e.g. angular + ngrx it's much simpler there. 
+  * The other thing is that using the store provider I was able to get the store exactly of type Store<AppState> only. If the AppState was of type ISubState, I was not able to get the Store<ISubState>. The store is being passed using InheritedWidget https://docs.flutter.io/flutter/widgets/InheritedWidget-class.html and it's prbably its constraint.
+TODO: analyze the topic deeper
 
 
 ### Tools
