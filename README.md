@@ -67,3 +67,4 @@ Here there is a nice summary of the options: https://medium.com/flutter-io/some-
 - [ ] use persist https://github.com/Cretezy/redux_persist
 - [ ] Analyze the package: https://github.com/google/built_value.dart
 - [ ] Find a way to keep the genrated code out of the main src
+- [ ] Android adaptive icons
