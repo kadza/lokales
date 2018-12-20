@@ -9,17 +9,17 @@ import '../spot.state.dart';
 typedef void SelectSpot(String spotId);
 
 @immutable
-class SpotListViewModel{
+class SpotListPageViewModel{
   final List<Spot> spotList;
   final SelectSpot selectSpot;
 
-  SpotListViewModel({@required this.spotList, @required this.selectSpot});
+  SpotListPageViewModel({@required this.spotList, @required this.selectSpot});
   
-  factory SpotListViewModel.from(
+  factory SpotListPageViewModel.from(
       Store<SpotStateContainer> spotStateStore) {
     final spotList = selectAll(spotStateStore.state);
     final selectSpot = (spotId) => spotStateStore.dispatch(SelectSpotAction(spotId: spotId));
 
-    return SpotListViewModel(spotList: spotList, selectSpot: selectSpot);
+    return SpotListPageViewModel(spotList: spotList, selectSpot: selectSpot);
   }
 }

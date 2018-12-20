@@ -10,6 +10,8 @@ part 'spot.model.g.dart';
 class Spot {
   final String id;
   final String name;
+  final String shortName;
+  final String titleImagePath;
   final List<String> validWindDirections;
   final CameraPosition location;
   final RowColumn icmImageLocation;
@@ -20,6 +22,8 @@ class Spot {
     @required this.id,
     @required this.location,
     @required this.name,
+    @required this.shortName,
+    @required this.titleImagePath,
     this.description,
     this.icmImageLocation,
     this.validWindDirections,

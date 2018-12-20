@@ -3,9 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-import './spot/spot_list/spot_list.container.dart';
+import './spot/spot_list_page/spot_list_page.container.dart';
 import 'l10n/app_localization.dart';
-import 'settings/settings_drawer.dart';
 import 'state.dart';
 
 void main() => runApp(new App());
@@ -34,7 +33,8 @@ class App extends StatelessWidget {
               const Locale('pl', ''),
             ],
             theme: new ThemeData(
-              primaryColor: Colors.black,
+              primaryColor: Color.fromRGBO(72, 146, 202, 1),
+              fontFamily: 'Futura',
             ),
             title: 'Lokales',
             home: new AppContent(store: store, devDrawerBuilder: devDrawerBuilder)));
@@ -54,14 +54,7 @@ class AppContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreProvider(
       store: store,
-      child: new Scaffold(
-        appBar: new AppBar(
-          title: new Text(AppLocalizations.of(context).spots),
-        ),
-        drawer: new SettingsDrawer(),
-        //endDrawer: devDrawerBuilder != null ? devDrawerBuilder(context) : null,
-        body: new SpotList(),
-      ),
+      child: SpotListPage(),
     );
   }
 }

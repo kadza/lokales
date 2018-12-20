@@ -14,20 +14,33 @@ class SpotDetailsPageView extends StatelessWidget {
   final SpotDetailsPageViewModel viewModel;
 
   SpotDetailsPageView({
-    Key key,
     @required this.viewModel,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(this.viewModel.title),
-      ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            children: <Widget>[
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            expandedHeight: 200,
+            floating: false,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title:  Text(
+                  this.viewModel.title,
+                ),
+              background: Image.asset(
+                this.viewModel.titleImagePath, 
+                fit: BoxFit.cover,
+              ),
+              centerTitle: false,
+              collapseMode: CollapseMode.parallax,
+            ),
+          ),
+        SliverList(
+        delegate: SliverChildListDelegate(
+             <Widget>[
               IcmCard(),
               WebViewCard(
                   title: AppLocalizations.of(context).windguruWeatherForecast,
@@ -37,9 +50,10 @@ class SpotDetailsPageView extends StatelessWidget {
               WindDirectionCard(),
               DescriptionCard(),
             ],
-          ),
-        ),
       ),
+          )
+        ],
+      ) 
     );
   }
 }

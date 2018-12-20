@@ -35,6 +35,7 @@ class AppState implements HomeLocationStateContainer, DynamicMapStateContainer, 
       "1": new Spot(
         id: "1",
         name: 'Czarnocin',
+        shortName: 'Czarnocin',
         icmImageLocation: RowColumn(row: 423, column: 227),
         validWindDirections: ["NW", "SE"],
         location: CameraPosition(
@@ -43,10 +44,12 @@ class AppState implements HomeLocationStateContainer, DynamicMapStateContainer, 
         ),
         windguruUrl: Uri.parse("https://www.windguru.cz/4880"),
         description: "czarnocin",
+        titleImagePath: 'images/czarnocin.png',
       ),
       "2": new Spot(
         id: "2",
         name: 'Zalew Sulejowski - Karolinów',
+        shortName: 'Karolinów',
         icmImageLocation: RowColumn(row: 430, column: 234),
         validWindDirections: ["SW"],
         location: CameraPosition(
@@ -55,10 +58,12 @@ class AppState implements HomeLocationStateContainer, DynamicMapStateContainer, 
         ),
         windguruUrl: Uri.parse("https://www.windguru.cz/32462"),
         description: "zalew-sulejowski",
+        titleImagePath: 'images/czarnocin.png',
       ),
       "3": new Spot(
         id: "3",
         name: 'Chałupy - Chałupy 6',
+        shortName: 'Chałupy 6',
         icmImageLocation: RowColumn(row: 332, column: 206),
         validWindDirections: ["W", "SW", "S", "SE"],
         location: new CameraPosition(
@@ -67,6 +72,7 @@ class AppState implements HomeLocationStateContainer, DynamicMapStateContainer, 
         ),
         windguruUrl: Uri.parse("https://www.windguru.cz/597178"),
         description: "chalupy",
+        titleImagePath: 'images/czarnocin.png',
       ),
     });
 

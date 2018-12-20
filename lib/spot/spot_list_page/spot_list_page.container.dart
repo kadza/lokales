@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-import './spot_list.view.dart';
-import './spot_list.view_model.dart';
+import './spot_list_page.view.dart';
+import './spot_list_page.view_model.dart';
 import '../../state.dart';
 
-class SpotList extends StatelessWidget {
+class SpotListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return StoreConnector<AppState, SpotListViewModel>(
+    return StoreConnector<AppState, SpotListPageViewModel>(
         converter: (Store<AppState> store) {
       
-      return SpotListViewModel.from(store);
+      return SpotListPageViewModel.from(store);
     }, builder: (context, viewModel) {
       
-      return SpotListView(viewModel: viewModel,);
+      return SpotListPageView(viewModel: viewModel,);
     });
   }
 }
