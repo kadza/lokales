@@ -33,7 +33,7 @@ class WebViewCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var pushWebView = () => _pushWebView(context);
+    final pushWebView = () => _pushWebView(context);
 
     return new DetailsCard(
       title: viewModel.title,
