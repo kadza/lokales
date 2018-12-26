@@ -51,6 +51,10 @@ This is so cumbersome ... You need to take care of the serialization by yourself
 
 Here there is a nice summary of the options: https://medium.com/flutter-io/some-options-for-deserializing-json-with-flutter-7481325a4450
 
+## Ui
+* Transparent appbar https://github.com/flutter/flutter/issues/17088
+* Null values in widget collections: https://github.com/flutter/flutter/issues/17862
+
 ## Missing features
 
 * No auto-import in vscode

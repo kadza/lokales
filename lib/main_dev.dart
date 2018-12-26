@@ -11,19 +11,19 @@ import 'navigation/navigation_launcher/navigation_launcher.epics.dart';
 void main() async {
   final epicMiddleware = EpicMiddleware(launchNavigationEpic);
   
-  // final remoteDevtoolsMiddleware = RemoteDevToolsMiddleware('192.168.1.176:8000');
-  // await remoteDevtoolsMiddleware.connect();
+  final remoteDevtoolsMiddleware = RemoteDevToolsMiddleware('192.168.1.176:8000');
+  await remoteDevtoolsMiddleware.connect();
   
   final store = DevToolsStore<AppState>(
     appStateReducer,
     initialState: AppState.loading(),
     middleware: [
       epicMiddleware, 
-      // remoteDevtoolsMiddleware,
+      remoteDevtoolsMiddleware,
     ],
   );
   
-  // remoteDevtoolsMiddleware.store = store;
+  remoteDevtoolsMiddleware.store = store;
 
   runApp(new App(
       store: store,

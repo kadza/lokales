@@ -3,6 +3,8 @@ import 'package:meta/meta.dart';
 
 import './map/dynamic_map.model.dart';
 import './map/dynamic_map.state.dart';
+import './media/media_gallery/media_gallery.state.dart';
+import './media/media_model.dart';
 import './navigation/home_location/home_location.state.dart';
 import './row_column.model.dart';
 import './spot/settings/spot_settings.model.dart';
@@ -13,15 +15,22 @@ part 'state.g.dart';
 
 @immutable
 @JsonSerializable()
-class AppState implements HomeLocationStateContainer, DynamicMapStateContainer, SpotStateContainer {
+class AppState implements 
+  HomeLocationStateContainer, 
+  DynamicMapStateContainer, 
+  SpotStateContainer, 
+  MediaGalleryStateContainer {
+  
   final HomeLocationState homeLocationState;
   final DynamicMapState dynamicMapState;
   final SpotState spotState;
+  final MediaGalleryState mediaGalleryState;
 
   AppState({
     @required this.homeLocationState, 
     @required this.dynamicMapState,
     @required this.spotState,
+    @required this.mediaGalleryState,
   });
 
   factory AppState.fromJson(Map<String, dynamic> json) => _$AppStateFromJson(json);
@@ -32,51 +41,51 @@ class AppState implements HomeLocationStateContainer, DynamicMapStateContainer, 
     final spotMapZoomLevel = 5.0;
 
     final spotMap = Map<String, Spot>.from({
-      "1": new Spot(
-        id: "1",
+      '1': new Spot(
+        id: '1',
         name: 'Czarnocin',
         shortName: 'Czarnocin',
         icmImageLocation: RowColumn(row: 423, column: 227),
-        validWindDirections: ["NW", "SE"],
+        validWindDirections: ['NW', 'SE'],
         location: CameraPosition(
           target: LatLng(latitude: 51.608700, longitude: 19.699706),
           zoom: spotMapZoomLevel
         ),
-        windguruUrl: Uri.parse("https://www.windguru.cz/4880"),
-        description: "czarnocin",
+        windguruUrl: Uri.parse('https://www.windguru.cz/4880'),
+        description: 'czarnocin',
         titleImagePath: 'images/czarnocin.png',
       ),
-      "2": new Spot(
-        id: "2",
+      '2': new Spot(
+        id: '2',
         name: 'Zalew Sulejowski - Karolinów',
         shortName: 'Karolinów',
         icmImageLocation: RowColumn(row: 430, column: 234),
-        validWindDirections: ["SW"],
+        validWindDirections: ['SW'],
         location: CameraPosition(
           target: LatLng(latitude: 51.451805, longitude: 19.971582),
           zoom: spotMapZoomLevel
         ),
-        windguruUrl: Uri.parse("https://www.windguru.cz/32462"),
-        description: "zalew-sulejowski",
+        windguruUrl: Uri.parse('https://www.windguru.cz/32462'),
+        description: 'zalew-sulejowski',
         titleImagePath: 'images/czarnocin.png',
       ),
-      "3": new Spot(
-        id: "3",
+      '3': new Spot(
+        id: '3',
         name: 'Chałupy - Chałupy 6',
         shortName: 'Chałupy 6',
         icmImageLocation: RowColumn(row: 332, column: 206),
-        validWindDirections: ["W", "SW", "S", "SE"],
+        validWindDirections: ['W', 'SW', 'S', 'SE'],
         location: new CameraPosition(
           target: LatLng(latitude: 54.761199, longitude: 18.499220),
           zoom: spotMapZoomLevel
         ),
-        windguruUrl: Uri.parse("https://www.windguru.cz/597178"),
-        description: "chalupy",
+        windguruUrl: Uri.parse('https://www.windguru.cz/597178'),
+        description: 'chalupy',
         titleImagePath: 'images/czarnocin.png',
       ),
     });
 
-    final spotSettings =  SpotSettings(
+    final spotSettings = SpotSettings(
       isDescriptionVisible: true,
       isLocationVisible: true,
       isWindDirectionsVisible: true,
@@ -91,13 +100,16 @@ class AppState implements HomeLocationStateContainer, DynamicMapStateContainer, 
     
     return AppState(
       homeLocationState: HomeLocationState(
-        homeLocation: homeLocation
+        homeLocation: homeLocation,
       ),
       dynamicMapState: DynamicMapState(entities: Map()),
       spotState: SpotState(
         settings: spotSettings, 
         selectedSpotId: null,
-        entities: spotMap
+        entities: spotMap,
+      ),
+      mediaGalleryState: MediaGalleryState(
+        entities: Map<String,Media>(),
       )
     );
   }

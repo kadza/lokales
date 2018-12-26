@@ -1,10 +1,12 @@
-import 'state.dart';
-import 'navigation/home_location/home_location.reducer.dart';
 import 'map/dynamic_map.reducer.dart';
+import 'media/media_gallery/media_gallery.reducer.dart';
+import 'navigation/home_location/home_location.reducer.dart';
 import 'spot/spot.reducer.dart';
+import 'state.dart';
 
 AppState appStateReducer(AppState state, action) => new AppState(
   homeLocationState: homeLocationReducer(state.homeLocationState, action),
   dynamicMapState: dynamicMapReducer(state.dynamicMapState, action),
   spotState: spotReducer(state.spotState, action),
+  mediaGalleryState: mediaGalleryReducer(state.mediaGalleryState, action)
 );
