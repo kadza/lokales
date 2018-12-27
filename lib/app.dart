@@ -33,22 +33,20 @@ class App extends StatelessWidget {
               const Locale('pl', ''),
             ],
             theme: new ThemeData(
-              primaryColor: Color.fromRGBO(72, 146, 202, 1),
+              primaryColor: Colors.black,
               fontFamily: 'Futura',
             ),
             title: 'Lokales',
-            home: new AppContent(store: store, devDrawerBuilder: devDrawerBuilder)));
+            home: new AppContent(store: store)));
   }
 }
 
 class AppContent extends StatelessWidget {
   final Store<AppState> store;
-  final WidgetBuilder devDrawerBuilder;
   
   AppContent({
     Key key,
     this.store,
-    this.devDrawerBuilder,
   }): super(key: key);
 
   Widget build(BuildContext context) {

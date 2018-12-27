@@ -67,7 +67,7 @@ class AppState implements
         ),
         windguruUrl: Uri.parse('https://www.windguru.cz/32462'),
         description: 'zalew-sulejowski',
-        titleImagePath: 'images/czarnocin.png',
+        titleImagePath: 'images/karolinow.jpg',
       ),
       '3': new Spot(
         id: '3',
@@ -81,7 +81,7 @@ class AppState implements
         ),
         windguruUrl: Uri.parse('https://www.windguru.cz/597178'),
         description: 'chalupy',
-        titleImagePath: 'images/czarnocin.png',
+        titleImagePath: 'images/chalupy.jpg',
       ),
     });
 
