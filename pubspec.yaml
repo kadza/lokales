@@ -75,6 +75,8 @@ flutter:
       fonts:
         - asset: fonts/Futura-Regular.ttf
         - asset: fonts/Futura-Italic.ttf
-  
+    - family: Lokales
+      fonts:
+        - asset: fonts/Lokales.ttf
   # For details regarding fonts from package dependencies, 
   # see https://flutter.io/custom-fonts/#from-packages

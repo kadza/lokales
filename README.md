@@ -52,6 +52,13 @@ This is so cumbersome ... You need to take care of the serialization by yourself
 Here there is a nice summary of the options: https://medium.com/flutter-io/some-options-for-deserializing-json-with-flutter-7481325a4450
 
 ## Ui
+
+### Custom icons
+* https://medium.com/flutterpub/how-to-use-custom-icons-in-flutter-834a079d977
+* http://fluttericon.com
+  NOTE: I wasn't able to import the logo svg correctly to the flutter icons generator. I used http://app.fontastic.me first, and then I imported the generated font to the flutter generator
+
+### Misc
 * Transparent appbar https://github.com/flutter/flutter/issues/17088
 * Null values in widget collections: https://github.com/flutter/flutter/issues/17862
 
