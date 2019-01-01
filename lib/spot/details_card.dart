@@ -4,19 +4,16 @@ import 'package:flutter/material.dart';
 class DetailsCard extends StatelessWidget {
   final String title;
   final Widget child;
+  final VoidCallback onHelpTap;
 
   DetailsCard({
-    Key key,
     @required this.title,
     @required this.child,
-  }) : super(key: key);
+    this.onHelpTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    final TextStyle titleStyle =
-        theme.textTheme.body1.copyWith(color: Colors.black);
-
     return Card(
       child: Column(children: <Widget>[
         SizedBox(
@@ -24,12 +21,18 @@ class DetailsCard extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.all(10.0),
-                child: Align(
-                  child: Text(
-                    title,
-                    style: titleStyle,
-                  ),
-                  alignment: Alignment.centerLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: () sync* {
+                    yield Text(
+                      title,
+                    );
+                    if(onHelpTap != null)
+                      yield IconButton(
+                        icon: Icon(Icons.help_outline),
+                        onPressed: onHelpTap,
+                      );
+                  } ().toList(),
                 ),
               ),
               Padding(

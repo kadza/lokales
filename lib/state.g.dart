@@ -22,12 +22,17 @@ AppState _$AppStateFromJson(Map<String, dynamic> json) {
       mediaGalleryState: json['mediaGalleryState'] == null
           ? null
           : MediaGalleryState.fromJson(
-              json['mediaGalleryState'] as Map<String, dynamic>));
+              json['mediaGalleryState'] as Map<String, dynamic>),
+      webViewState: json['webViewState'] == null
+          ? null
+          : WebViewState.fromJson(
+              json['webViewState'] as Map<String, dynamic>));
 }
 
 Map<String, dynamic> _$AppStateToJson(AppState instance) => <String, dynamic>{
       'homeLocationState': instance.homeLocationState,
       'dynamicMapState': instance.dynamicMapState,
       'spotState': instance.spotState,
-      'mediaGalleryState': instance.mediaGalleryState
+      'mediaGalleryState': instance.mediaGalleryState,
+      'webViewState': instance.webViewState
     };

@@ -21,4 +21,11 @@ class Lokales {
   static const _kFontFam = 'Lokales';
 
   static const IconData logo = const IconData(0xe800, fontFamily: _kFontFam);
+  static const IconData windy = const IconData(0xe801, fontFamily: _kFontFam);
+  static const IconData windguru = const IconData(0xe802, fontFamily: _kFontFam);
+  static const IconData deep_water = const IconData(0xe803, fontFamily: _kFontFam);
+  static const IconData flat = const IconData(0xe804, fontFamily: _kFontFam);
+  static const IconData shallow_water = const IconData(0xe805, fontFamily: _kFontFam);
+  static const IconData waves = const IconData(0xe806, fontFamily: _kFontFam);
+  static const IconData wind = const IconData(0xe80a, fontFamily: _kFontFam);
 }

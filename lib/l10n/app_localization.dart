@@ -59,8 +59,8 @@ class AppLocalizations {
     return _localizedValues[locale.languageCode]['open'];
   }
 
-  String get windDirections {
-    return _localizedValues[locale.languageCode]['wind-directions'];
+  String get spotCharacteristics {
+    return _localizedValues[locale.languageCode]['spot-characteristics'];
   }
   
   String get description {
@@ -70,6 +70,30 @@ class AppLocalizations {
   String spotDescription(String name) {
     final key = "$name-description";
     return _localizedValues[locale.languageCode][key];
+  }
+
+  String get legend {
+    return _localizedValues[locale.languageCode]['legend'];
+  }
+
+  String get validWindDirections {
+    return _localizedValues[locale.languageCode]['valid-wind-directions'];
+  }
+
+  String get shallowWater {
+    return _localizedValues[locale.languageCode]['shallow-water'];
+  }
+  
+  String get deepWater {
+    return _localizedValues[locale.languageCode]['deep-water'];
+  }
+
+  String get flatWater {
+    return _localizedValues[locale.languageCode]['flat-water'];
+  }
+  
+  String get waves {
+    return _localizedValues[locale.languageCode]['waves'];
   }
 }
 

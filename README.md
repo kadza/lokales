@@ -39,12 +39,22 @@ Cons
   * Wiring state change to a widget, takes so much fuss ... If you compare it to e.g. angular + ngrx it's much simpler there. 
   * The other thing is that using the store provider I was able to get the store exactly of type Store<AppState> only. If the AppState was of type ISubState, I was not able to get the Store<ISubState>. The store is being passed using InheritedWidget https://docs.flutter.io/flutter/widgets/InheritedWidget-class.html and it's prbably its constraint.
 TODO: analyze the topic deeper
+TOOO: Analyze https://hillelcoren.com/2018/06/01/building-a-large-flutter-app-with-redux/
 
 
 ### Tools
 * Redux Dev tools for dart https://github.com/brianegan/redux_dev_tools. A small project maintained by one guy.
 * Flutter dev tools https://github.com/brianegan/flutter_redux_dev_tools. A small project maintained by one guy. A simple widget with limited capabilities. Time travel, state snapshot review (based on toString), reset, recomputation. Its functaionlity is limited and it can be more of a toy then a tool for dev
 * Redux remote dev tools https://pub.dartlang.org/packages/redux_remote_devtools It has the most important feature that enables to track actions and state changes. IT's possible to do time travel. One thing needs to be mentioned it requires bot actions and state to be JSON serializable. 
+
+## Project structure
+* Folder by feature
+* .action - actions file
+* .{type} - indicates the type inside of the file, e.g view indicates it's a presentational component
+
+## Coding convention
+* Named parameters in public mehtods and constructors. Required annotation for mandatory parameters
+* Use keys for all the widgets 
 
 ## Json serialization
 This is so cumbersome ... You need to take care of the serialization by yourself, there are tools that can help and generate much of the code but still it takes time. The tool I used is https://pub.dartlang.org/packages/json_serializable. In the official docs https://flutter.io/docs/development/data-and-backend/json one of the mentioned way is to use manual serialization, don't go this way ;)
@@ -58,7 +68,11 @@ Here there is a nice summary of the options: https://medium.com/flutter-io/some-
 * http://fluttericon.com
   NOTE: I wasn't able to import the logo svg correctly to the flutter icons generator. I used http://app.fontastic.me first, and then I imported the generated font to the flutter generator
 
+### Custom painter
+  * https://medium.com/@rjstech/flutter-custom-paint-tutorial-build-a-radial-progress-6f80483494df
+
 ### Misc
+* https://medium.com/jlouage/flutter-boxdecoration-cheat-sheet-72cedaa1ba20
 * Transparent appbar https://github.com/flutter/flutter/issues/17088
 * Null values in widget collections: https://github.com/flutter/flutter/issues/17862
 
@@ -67,7 +81,13 @@ Here there is a nice summary of the options: https://medium.com/flutter-io/some-
 * No auto-import in vscode
 * No union types https://github.com/dart-lang/sdk/issues/4938
 
+## Misc
+### Keys
+* When to use keys https://www.youtube.com/watch?v=kn0EOS-ZiIc
+* Should I add a Key property to my custom widgets https://github.com/flutter/flutter/issues/3868
+
 ## TODO
+- [ ] Add keys to all the widgets
 - [ ] Unit tets
 - [ ] Replace static map card with dynamic_map
 - [ ] Do something about description id

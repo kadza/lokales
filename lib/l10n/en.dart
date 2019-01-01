@@ -10,10 +10,16 @@ class En {
     'go-to-spot': 'Go to spot',
     'go-home': 'Go home',
     'open': 'Open',
-    'wind-directions': 'Wind directions',
+    'spot-characteristics': 'Characteristics',
     'description': 'Description',
     'zalew-sulejowski-description': 'TBD',
     'czarnocin-description': 'TBD',
     'chalupy-description': 'TBD',
+    'legend': 'Legend',
+    'shallow-water': 'Shallow water',
+    'deep-water': 'Deep water',
+    'flat-water': 'Flat water',
+    'waves': 'Waves',
+    'valid-wind-directions': 'Valid wind directions (e.g. North)'
   };
 }
