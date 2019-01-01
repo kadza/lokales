@@ -1,21 +1,12 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:flutter/foundation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-import '../row_column.model.dart';
 import '../map/dynamic_map.model.dart';
+import '../row_column.model.dart';
 
 part 'spot.model.g.dart';
 
-enum WindDirection {
-  N,
-  NE,
-  E,
-  SE,
-  S,
-  SW,
-  W,
-  NW
-}
+enum WindDirection { N, NE, E, SE, S, SW, W, NW }
 
 @immutable
 @JsonSerializable()
@@ -31,8 +22,9 @@ class SpotCharacteristics {
     @required this.windDirections,
     @required this.isWaterFlat,
   });
-  
-  factory SpotCharacteristics.fromJson(Map<String, dynamic> json) => _$SpotCharacteristicsFromJson(json);
+
+  factory SpotCharacteristics.fromJson(Map<String, dynamic> json) =>
+      _$SpotCharacteristicsFromJson(json);
 
   Map<String, dynamic> toJson() => _$SpotCharacteristicsToJson(this);
 }
@@ -63,7 +55,7 @@ class Spot {
     this.windguruUrl,
     this.windyUrl,
   });
-  
+
   factory Spot.fromJson(Map<String, dynamic> json) => _$SpotFromJson(json);
 
   Map<String, dynamic> toJson() => _$SpotToJson(this);

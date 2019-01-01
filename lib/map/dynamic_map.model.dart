@@ -16,13 +16,14 @@ class LatLng {
 
   Map<String, dynamic> toJson() => _$LatLngToJson(this);
 
-  factory LatLng.fromLatLng(GoogleMaps.LatLng latLng) => 
-    LatLng(latitude: latLng.latitude, longitude: latLng.longitude);
+  factory LatLng.fromLatLng(GoogleMaps.LatLng latLng) =>
+      LatLng(latitude: latLng.latitude, longitude: latLng.longitude);
 
-  GoogleMaps.LatLng toLatLng() => GoogleMaps.LatLng(this.latitude, this.longitude);
+  GoogleMaps.LatLng toLatLng() =>
+      GoogleMaps.LatLng(this.latitude, this.longitude);
 
-  bool equals(GoogleMaps.LatLng latLng) => 
-    this.latitude == latLng.latitude && this.longitude == latLng.longitude; 
+  bool equals(GoogleMaps.LatLng latLng) =>
+      this.latitude == latLng.latitude && this.longitude == latLng.longitude;
 }
 
 @immutable
@@ -33,16 +34,21 @@ class CameraPosition {
 
   CameraPosition({@required this.target, @required this.zoom});
 
-  factory CameraPosition.fromJson(Map<String, dynamic> json) => _$CameraPositionFromJson(json);
+  factory CameraPosition.fromJson(Map<String, dynamic> json) =>
+      _$CameraPositionFromJson(json);
 
   Map<String, dynamic> toJson() => _$CameraPositionToJson(this);
 
-  factory CameraPosition.fromCameraPosition(GoogleMaps.CameraPosition cameraPosition) =>
-    CameraPosition(target: LatLng.fromLatLng(cameraPosition.target), zoom: cameraPosition.zoom);  
+  factory CameraPosition.fromCameraPosition(
+          GoogleMaps.CameraPosition cameraPosition) =>
+      CameraPosition(
+          target: LatLng.fromLatLng(cameraPosition.target),
+          zoom: cameraPosition.zoom);
 
-  GoogleMaps.CameraPosition toCameraPosition() =>
-    GoogleMaps.CameraPosition(target: this.target.toLatLng(), zoom: this.zoom);
+  GoogleMaps.CameraPosition toCameraPosition() => GoogleMaps.CameraPosition(
+      target: this.target.toLatLng(), zoom: this.zoom);
 
   bool equals(GoogleMaps.CameraPosition cameraPosition) =>
-    this.target.equals(cameraPosition.target) && this.zoom == cameraPosition.zoom;
+      this.target.equals(cameraPosition.target) &&
+      this.zoom == cameraPosition.zoom;
 }

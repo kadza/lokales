@@ -13,15 +13,13 @@ class WebView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return StoreConnector<AppState, WebViewViewModel>(
         converter: (Store<AppState> store) {
-      
       return WebViewViewModel.from(store, this.title);
     }, builder: (context, viewModel) {
-      
-      return WebViewView(viewModel: viewModel,);
+      return WebViewView(
+        viewModel: viewModel,
+      );
     });
   }
 }
-

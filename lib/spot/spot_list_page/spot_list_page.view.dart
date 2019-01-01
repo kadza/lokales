@@ -30,10 +30,7 @@ class SpotListItem extends StatelessWidget {
 class SpotListPageView extends StatefulWidget {
   final SpotListPageViewModel viewModel;
 
-  SpotListPageView({
-    Key key, 
-    this.viewModel
-  }) : super(key: key);
+  SpotListPageView({Key key, this.viewModel}) : super(key: key);
 
   @override
   _SpotListState createState() => new _SpotListState();
@@ -55,37 +52,33 @@ class _SpotListState extends State<SpotListPageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: new SettingsDrawer(),
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            expandedHeight: 200,
-            floating: false,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title:  Text(
-                  AppLocalizations.of(context).spots, 
+        drawer: new SettingsDrawer(),
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: 200,
+              floating: false,
+              pinned: true,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  AppLocalizations.of(context).spots,
                 ),
-              background: Image.asset(
-                'images/tarifa.png', 
-                fit: BoxFit.cover,
+                background: Image.asset(
+                  'images/tarifa.png',
+                  fit: BoxFit.cover,
+                ),
+                centerTitle: false,
+                collapseMode: CollapseMode.parallax,
               ),
-              centerTitle: false,
-              collapseMode: CollapseMode.parallax,
             ),
-            ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate((context, index ) {
+            SliverList(
+                delegate: SliverChildBuilderDelegate((context, index) {
               return SpotListItem(
                 spot: this.widget.viewModel.spotList[index],
                 onSpotTapped: _pushSpotDetailsPage,
               );
-            },
-            childCount: this.widget.viewModel.spotList.length
-            )      
-          ),
-        ],
-      ) 
-    );
+            }, childCount: this.widget.viewModel.spotList.length)),
+          ],
+        ));
   }
 }

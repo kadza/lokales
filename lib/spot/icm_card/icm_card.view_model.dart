@@ -11,8 +11,8 @@ import '../spot.selector.dart';
 import '../spot.state.dart';
 
 @immutable
-class IcmCardViewModel{
-  final Store<SpotStateContainer> store;  
+class IcmCardViewModel {
+  final Store<SpotStateContainer> store;
   final BuildContext context;
   final Media media;
 
@@ -21,43 +21,39 @@ class IcmCardViewModel{
     @required this.context,
     @required this.media,
   });
-  
+
   factory IcmCardViewModel.from(
-      Store<SpotStateContainer> spotStateStore,
-      BuildContext context,  
-    ) {
+    Store<SpotStateContainer> spotStateStore,
+    BuildContext context,
+  ) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);
 
     return IcmCardViewModel(
       store: spotStateStore,
       context: context,
       media: Media(
-        type: MediaType.Image, 
+        type: MediaType.Image,
         uri: getUri(selectedSpot.icmImageLocation),
       ),
     );
   }
 
   void onTap() {
-    this.store.dispatch(
-      AddMediaAction(
-        media: this.media,
-      )
-    );
-    
+    this.store.dispatch(AddMediaAction(
+          media: this.media,
+        ));
+
     Navigator.of(this.context).push(
-      MaterialPageRoute(
-        builder: (context) {
-          return MediaGallery(
-            onDispose: () => this.store.dispatch(ClearMediaAction())
-          );
-        }
-      ),
+      MaterialPageRoute(builder: (context) {
+        return MediaGallery(
+            onDispose: () => this.store.dispatch(ClearMediaAction()));
+      }),
     );
   }
-  
-  static Uri getUri(RowColumn location){
-    return Uri.tryParse("${getIcmForecastUri(location)}&${getDateQueryParamater()}");
+
+  static Uri getUri(RowColumn location) {
+    return Uri.tryParse(
+        "${getIcmForecastUri(location)}&${getDateQueryParamater()}");
   }
 
   static String getIcmForecastUri(RowColumn location) {

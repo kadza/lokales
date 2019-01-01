@@ -18,8 +18,10 @@ class LocationCardView extends StatelessWidget {
   Widget build(BuildContext context) {
     var locations = new List();
     final location = viewModel.location.target;
-    locations.add({"latitude": location.latitude, "longitude": location.longitude});
-    locations.add({"latitude": location.latitude, "longitude": location.longitude});
+    locations
+        .add({"latitude": location.latitude, "longitude": location.longitude});
+    locations
+        .add({"latitude": location.latitude, "longitude": location.longitude});
     var apiKey = "AIzaSyAZO7rzoyHXvWtpl81vGwDtU1udaykZbaA";
     return DetailsCard(
       title: AppLocalizations.of(context).spotLocation,

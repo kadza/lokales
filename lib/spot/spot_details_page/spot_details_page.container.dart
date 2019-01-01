@@ -9,15 +9,13 @@ import '../../state.dart';
 class SpotDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return StoreConnector<AppState, SpotDetailsPageViewModel>(
         converter: (Store<AppState> store) {
-      
       return SpotDetailsPageViewModel.from(store);
     }, builder: (context, viewModel) {
-      
-      return SpotDetailsPageView(viewModel: viewModel,);
+      return SpotDetailsPageView(
+        viewModel: viewModel,
+      );
     });
   }
 }
-

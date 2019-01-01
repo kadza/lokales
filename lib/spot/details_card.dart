@@ -27,12 +27,13 @@ class DetailsCard extends StatelessWidget {
                     yield Text(
                       title,
                     );
-                    if(onHelpTap != null)
+                    if (onHelpTap != null)
                       yield IconButton(
                         icon: Icon(Icons.help_outline),
                         onPressed: onHelpTap,
                       );
-                  } ().toList(),
+                  }()
+                      .toList(),
                 ),
               ),
               Padding(

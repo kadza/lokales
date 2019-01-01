@@ -8,7 +8,7 @@ import 'wind_direction_symbol.view.dart';
 
 class LegendDialog extends StatelessWidget {
   LegendDialog({Key key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
@@ -51,20 +51,18 @@ class LegendDialog extends StatelessWidget {
 
   Widget _getColumnItem(Widget item, String text) {
     return Padding(
-      padding: EdgeInsets.all(10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          item,
-          SizedBox(
-            width: 140,
-            child: Text(
-              text, 
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ]
-      )
-    );
+        padding: EdgeInsets.all(10),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              item,
+              SizedBox(
+                width: 140,
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ]));
   }
 }

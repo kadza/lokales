@@ -21,9 +21,9 @@ class MediaGalleryViewModel {
 
   factory MediaGalleryViewModel.from({
     Store<MediaGalleryStateContainer> store,
-    BuildContext context,    
+    BuildContext context,
     OnDisposeCallback onDispose,
-  }) { 
+  }) {
     final mediaList = allMediaSelector(store.state);
 
     return MediaGalleryViewModel(
@@ -33,11 +33,11 @@ class MediaGalleryViewModel {
     );
   }
 
-  void dispose(){
+  void dispose() {
     onDispose();
   }
 
-  void onTap(){
+  void onTap() {
     Navigator.of(context).pop();
     this.dispose();
   }

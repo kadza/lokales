@@ -9,15 +9,13 @@ import '../../state.dart';
 class NavigationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return StoreConnector<AppState, NavigationCardViewModel>(
         converter: (Store<AppState> store) {
-      
       return NavigationCardViewModel.from(store, store);
     }, builder: (context, viewModel) {
-      
-      return NavigationCardView(viewModel: viewModel,);
+      return NavigationCardView(
+        viewModel: viewModel,
+      );
     });
   }
 }
-

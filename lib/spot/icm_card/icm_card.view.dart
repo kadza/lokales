@@ -19,7 +19,7 @@ class IcmCardView extends StatelessWidget {
         height: 300,
         width: 300,
         child: ImageHero(
-          media: viewModel.media, 
+          media: viewModel.media,
           onTap: viewModel.onTap,
         ),
       ),

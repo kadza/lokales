@@ -17,16 +17,16 @@ class NavigationCardViewModel {
   });
 
   factory NavigationCardViewModel.from(
-    Store<HomeLocationStateContainer> homeLocationStateStore,
-    Store<SpotStateContainer> spotStateStore) {
+      Store<HomeLocationStateContainer> homeLocationStateStore,
+      Store<SpotStateContainer> spotStateStore) {
     final homeLocation = homeLocationSelector(homeLocationStateStore.state);
     final spot = selectedSpotSelector(spotStateStore.state);
 
     return NavigationCardViewModel(
-      goHome: () =>
-        spotStateStore.dispatch(LaunchNavigationAction(destinationLocation: homeLocation.target)),
-      goToSpot: () => 
-        spotStateStore.dispatch(LaunchNavigationAction(destinationLocation: spot.location.target)),
+      goHome: () => spotStateStore.dispatch(
+          LaunchNavigationAction(destinationLocation: homeLocation.target)),
+      goToSpot: () => spotStateStore.dispatch(
+          LaunchNavigationAction(destinationLocation: spot.location.target)),
     );
   }
 }

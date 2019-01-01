@@ -9,15 +9,13 @@ import '../../state.dart';
 class HomeLocation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return StoreConnector<AppState, HomeLocationViewModel>(
         converter: (Store<AppState> store) {
-      
       return HomeLocationViewModel.from(store, store);
     }, builder: (context, viewModel) {
-      
-      return new HomeLocationView(viewModel: viewModel,);
+      return new HomeLocationView(
+        viewModel: viewModel,
+      );
     });
   }
 }
-

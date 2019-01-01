@@ -33,8 +33,8 @@ class WindDirectionSymbolPainter extends CustomPainter {
 
   static Path _getCombinedPath(Iterable windDirections, double sideLength) {
     return windDirections
-      .map((windDirection) => _getPath(windDirection, sideLength))
-      .reduce((v, e) => Path.combine(PathOperation.union, v, e));
+        .map((windDirection) => _getPath(windDirection, sideLength))
+        .reduce((v, e) => Path.combine(PathOperation.union, v, e));
   }
 
   static Path _getPath(WindDirection windDirection, double sideLength) {

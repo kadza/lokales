@@ -9,14 +9,15 @@ class WebViewState {
   final Uri uri;
   final bool withZoom;
   final bool localStorage;
- 
+
   WebViewState({
     @required this.uri,
     @required this.withZoom,
     @required this.localStorage,
   });
 
-  factory WebViewState.fromJson(Map<String, dynamic> json) => _$WebViewStateFromJson(json);
+  factory WebViewState.fromJson(Map<String, dynamic> json) =>
+      _$WebViewStateFromJson(json);
 
   Map<String, dynamic> toJson() => _$WebViewStateToJson(this);
 }
@@ -27,8 +28,8 @@ class WebViewStateContainer {
 
   WebViewStateContainer({@required this.webViewState});
 
-  factory WebViewStateContainer.fromJson(Map<String, dynamic> json) => 
-    _$WebViewStateContainerFromJson(json);
+  factory WebViewStateContainer.fromJson(Map<String, dynamic> json) =>
+      _$WebViewStateContainerFromJson(json);
 
   Map<String, dynamic> toJson() => _$WebViewStateContainerToJson(this);
 }

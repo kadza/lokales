@@ -12,7 +12,8 @@ class HomeLocationState {
 
   HomeLocationState({@required this.homeLocation});
 
-  factory HomeLocationState.fromJson(Map<String, dynamic> json) => _$HomeLocationStateFromJson(json);
+  factory HomeLocationState.fromJson(Map<String, dynamic> json) =>
+      _$HomeLocationStateFromJson(json);
 
   Map<String, dynamic> toJson() => _$HomeLocationStateToJson(this);
 }
@@ -23,8 +24,8 @@ class HomeLocationStateContainer {
 
   HomeLocationStateContainer({@required this.homeLocationState});
 
-  factory HomeLocationStateContainer.fromJson(Map<String, dynamic> json) => 
-    _$HomeLocationStateContainerFromJson(json);
+  factory HomeLocationStateContainer.fromJson(Map<String, dynamic> json) =>
+      _$HomeLocationStateContainerFromJson(json);
 
   Map<String, dynamic> toJson() => _$HomeLocationStateContainerToJson(this);
 }

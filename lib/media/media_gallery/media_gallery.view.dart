@@ -17,37 +17,32 @@ class MediaGalleryView extends StatelessWidget {
     return new WillPopScope(
       onWillPop: this._onWillPop,
       child: Scaffold(
-        body: 
-        Stack(
-          children: () sync* {
-            if(viewModel.mediaList.isNotEmpty)
-              yield Positioned.fill(
-                child: ImageHero(
-                  media: viewModel.mediaList.first, 
-                  onTap: () => viewModel.onTap()
-                )
-              );
-            yield Positioned(
-              top: 0.0,
-              left: 0.0,
-              right: 0.0,
-              child: AppBar(
-                iconTheme: IconThemeData(
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-                backgroundColor: Colors.transparent,
-                elevation: 0.0,
-              ),
-            );
-          }().toList()
-        )
-      ),
+          body: Stack(
+              children: () sync* {
+        if (viewModel.mediaList.isNotEmpty)
+          yield Positioned.fill(
+              child: ImageHero(
+                  media: viewModel.mediaList.first,
+                  onTap: () => viewModel.onTap()));
+        yield Positioned(
+          top: 0.0,
+          left: 0.0,
+          right: 0.0,
+          child: AppBar(
+            iconTheme: IconThemeData(
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+          ),
+        );
+      }()
+                  .toList())),
     );
   }
 
-  Future<bool> _onWillPop(){
+  Future<bool> _onWillPop() {
     viewModel.onDispose();
     return Future.value(true);
   }
 }
-

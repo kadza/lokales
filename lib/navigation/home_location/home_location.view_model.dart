@@ -13,21 +13,22 @@ class HomeLocationViewModel {
   final CameraPosition homeLocation;
   final Store<DynamicMapStateContainer> dynamicMapStateStore;
 
-  HomeLocationViewModel({@required this.homeLocation, @required this.dynamicMapStateStore});
+  HomeLocationViewModel(
+      {@required this.homeLocation, @required this.dynamicMapStateStore});
 
   factory HomeLocationViewModel.from(
-      Store<HomeLocationStateContainer> homeLocationStateStore, 
+      Store<HomeLocationStateContainer> homeLocationStateStore,
       Store<DynamicMapStateContainer> dynamicMapStateStore) {
     final homeLocation = homeLocationSelector(homeLocationStateStore.state);
 
     return HomeLocationViewModel(
-      homeLocation: homeLocation, 
-      dynamicMapStateStore: dynamicMapStateStore
-    );
+        homeLocation: homeLocation, dynamicMapStateStore: dynamicMapStateStore);
   }
 
   void setHomeLocation() {
-    var cameraPosition = cameraPositionMapSelector(dynamicMapStateStore.state)["homeLocation"];
-    dynamicMapStateStore.dispatch(SetHomeLocationAction(homeLocation: cameraPosition));
+    var cameraPosition =
+        cameraPositionMapSelector(dynamicMapStateStore.state)["homeLocation"];
+    dynamicMapStateStore
+        .dispatch(SetHomeLocationAction(homeLocation: cameraPosition));
   }
 }

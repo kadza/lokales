@@ -5,11 +5,11 @@ import '../spot.selector.dart';
 import '../spot.state.dart';
 
 @immutable
-class DescriptionCardViewModel{
+class DescriptionCardViewModel {
   final String description;
 
   DescriptionCardViewModel({this.description});
-  
+
   factory DescriptionCardViewModel.from(
       Store<SpotStateContainer> spotStateStore) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);

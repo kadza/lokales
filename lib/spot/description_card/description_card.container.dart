@@ -9,15 +9,13 @@ import '../../state.dart';
 class DescriptionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return StoreConnector<AppState, DescriptionCardViewModel>(
         converter: (Store<AppState> store) {
-      
       return DescriptionCardViewModel.from(store);
     }, builder: (context, viewModel) {
-      
-      return DescriptionCardView(viewModel: viewModel,);
+      return DescriptionCardView(
+        viewModel: viewModel,
+      );
     });
   }
 }
-

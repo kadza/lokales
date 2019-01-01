@@ -9,17 +9,18 @@ part 'spot.state.g.dart';
 @immutable
 @JsonSerializable()
 class SpotState {
-  final Map<String,Spot> entities;
+  final Map<String, Spot> entities;
   final SpotSettings settings;
   final String selectedSpotId;
 
   SpotState({
-    @required this.entities, 
+    @required this.entities,
     @required this.settings,
     @required this.selectedSpotId,
   });
-  
-  factory SpotState.fromJson(Map<String, dynamic> json) => _$SpotStateFromJson(json);
+
+  factory SpotState.fromJson(Map<String, dynamic> json) =>
+      _$SpotStateFromJson(json);
 
   Map<String, dynamic> toJson() => _$SpotStateToJson(this);
 }
@@ -30,9 +31,9 @@ class SpotStateContainer {
   final SpotState spotState;
 
   SpotStateContainer({this.spotState});
-  
-  factory SpotStateContainer.fromJson(Map<String, dynamic> json) => 
-    _$SpotStateContainerFromJson(json);
+
+  factory SpotStateContainer.fromJson(Map<String, dynamic> json) =>
+      _$SpotStateContainerFromJson(json);
 
   Map<String, dynamic> toJson() => _$SpotStateContainerToJson(this);
 }

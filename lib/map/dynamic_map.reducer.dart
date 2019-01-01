@@ -10,15 +10,15 @@ final dynamicMapReducer = combineReducers<DynamicMapState>([
   TypedReducer<DynamicMapState, DisposeMapAction>(_dispose),
 ]);
 
-DynamicMapState _setCameraPosition(DynamicMapState mapState, dynamic action){
-  Map<String,CameraPosition> newMap = Map.from(mapState.entities);
+DynamicMapState _setCameraPosition(DynamicMapState mapState, dynamic action) {
+  Map<String, CameraPosition> newMap = Map.from(mapState.entities);
   newMap[action.clientId] = action.cameraPosition;
 
   return DynamicMapState(entities: newMap);
 }
 
-DynamicMapState _dispose(DynamicMapState mapState, DisposeMapAction action){
-  Map<String,CameraPosition> newMap = Map.from(mapState.entities);
+DynamicMapState _dispose(DynamicMapState mapState, DisposeMapAction action) {
+  Map<String, CameraPosition> newMap = Map.from(mapState.entities);
   newMap.remove(action.clientId);
 
   return DynamicMapState(entities: newMap);

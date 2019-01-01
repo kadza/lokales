@@ -25,10 +25,9 @@ class WindDirectionSymbol extends StatelessWidget {
       child: CustomPaint(
         size: Size(50, 50),
         foregroundPainter: WindDirectionSymbolPainter(
-          color: Colors.black,
-          sideLength: 50,
-          windDirections: this.windDirections
-        ),
+            color: Colors.black,
+            sideLength: 50,
+            windDirections: this.windDirections),
       ),
     );
   }

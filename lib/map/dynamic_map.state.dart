@@ -7,11 +7,12 @@ part 'dynamic_map.state.g.dart';
 
 @JsonSerializable()
 class DynamicMapState {
-  final Map<String,CameraPosition> entities;
+  final Map<String, CameraPosition> entities;
 
   DynamicMapState({@required this.entities});
-  
-  factory DynamicMapState.fromJson(Map<String, dynamic> json) => _$DynamicMapStateFromJson(json);
+
+  factory DynamicMapState.fromJson(Map<String, dynamic> json) =>
+      _$DynamicMapStateFromJson(json);
 
   Map<String, dynamic> toJson() => _$DynamicMapStateToJson(this);
 }
@@ -21,9 +22,9 @@ class DynamicMapStateContainer {
   final DynamicMapState dynamicMapState;
 
   DynamicMapStateContainer({this.dynamicMapState});
-  
-  factory DynamicMapStateContainer.fromJson(Map<String, dynamic> json) => 
-    _$DynamicMapStateContainerFromJson(json);
+
+  factory DynamicMapStateContainer.fromJson(Map<String, dynamic> json) =>
+      _$DynamicMapStateContainerFromJson(json);
 
   Map<String, dynamic> toJson() => _$DynamicMapStateContainerToJson(this);
 }

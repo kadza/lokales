@@ -16,12 +16,9 @@ class DescriptionCardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new DetailsCard(
-      title: AppLocalizations.of(context).description,
-      child: new SingleChildScrollView(
-        child: new Text(
-          AppLocalizations.of(context).spotDescription(viewModel.description)
-        )
-      )
-    );
+        title: AppLocalizations.of(context).description,
+        child: new SingleChildScrollView(
+            child: new Text(AppLocalizations.of(context)
+                .spotDescription(viewModel.description))));
   }
 }

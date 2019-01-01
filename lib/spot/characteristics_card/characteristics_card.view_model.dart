@@ -8,18 +8,17 @@ import '../spot.selector.dart';
 import '../spot.state.dart';
 
 @immutable
-class CharacteristicsCardViewModel{
+class CharacteristicsCardViewModel {
   final List<SpotCharacteristics> characteristicList;
   final BuildContext context;
 
   CharacteristicsCardViewModel({
     @required this.characteristicList,
-    @required this.context,  
+    @required this.context,
   });
-  
-  factory CharacteristicsCardViewModel.from(
-      Store<SpotStateContainer> store,
-      BuildContext context) {
+
+  factory CharacteristicsCardViewModel.fromStore(
+      Store<SpotStateContainer> store, BuildContext context) {
     final selectedSpot = selectedSpotSelector(store.state);
 
     return CharacteristicsCardViewModel(
@@ -28,11 +27,11 @@ class CharacteristicsCardViewModel{
     );
   }
 
-  void onHelpPressed(){
+  void onHelpPressed() {
     showDialog(
-      context: this.context,
-      builder: (BuildContext context) {
-        return LegendDialog();
-      });
+        context: this.context,
+        builder: (BuildContext context) {
+          return LegendDialog();
+        });
   }
 }

@@ -6,13 +6,12 @@ import '../spot.selector.dart';
 import '../spot.state.dart';
 
 @immutable
-class LocationCardViewModel{
+class LocationCardViewModel {
   final CameraPosition location;
 
   LocationCardViewModel({@required this.location});
-  
-  factory LocationCardViewModel.from(
-      Store<SpotStateContainer> spotStateStore) {
+
+  factory LocationCardViewModel.from(Store<SpotStateContainer> spotStateStore) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);
 
     return LocationCardViewModel(location: selectedSpot.location);

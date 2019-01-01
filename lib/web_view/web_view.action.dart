@@ -5,7 +5,7 @@ part 'web_view.action.g.dart';
 
 @immutable
 @JsonSerializable()
-class InitializeWebViewAction{
+class InitializeWebViewAction {
   final Uri uri;
   final bool withZoom;
   final bool localStorage;
@@ -16,17 +16,19 @@ class InitializeWebViewAction{
     @required this.localStorage,
   });
 
-  factory InitializeWebViewAction.fromJson(Map<String, dynamic> json) => _$InitializeWebViewActionFromJson(json);
+  factory InitializeWebViewAction.fromJson(Map<String, dynamic> json) =>
+      _$InitializeWebViewActionFromJson(json);
 
   Map<String, dynamic> toJson() => _$InitializeWebViewActionToJson(this);
 }
 
 @immutable
 @JsonSerializable()
-class DisposeWebViewAction{
+class DisposeWebViewAction {
   DisposeWebViewAction();
 
-  factory DisposeWebViewAction.fromJson(Map<String, dynamic> json) => _$DisposeWebViewActionFromJson(json);
+  factory DisposeWebViewAction.fromJson(Map<String, dynamic> json) =>
+      _$DisposeWebViewActionFromJson(json);
 
   Map<String, dynamic> toJson() => _$DisposeWebViewActionToJson(this);
 }

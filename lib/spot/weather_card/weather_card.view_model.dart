@@ -24,11 +24,11 @@ class WeatherCardViewModel {
     final selectedSpot = selectedSpotSelector(store.state);
 
     return WeatherCardViewModel(
-        store, 
-        context, 
-        selectedSpot.windguruUrl, 
-        selectedSpot.windyUrl,
-      );
+      store,
+      context,
+      selectedSpot.windguruUrl,
+      selectedSpot.windyUrl,
+    );
   }
 
   void onWindguruTap() {

@@ -11,7 +11,7 @@ class SpotSettings {
   final bool isLocationVisible;
   final bool isWindguruVisible;
   final bool isDescriptionVisible;
-  
+
   const SpotSettings({
     @required this.isIcmVisible,
     @required this.isWindDirectionsVisible,
@@ -20,7 +20,8 @@ class SpotSettings {
     @required this.isDescriptionVisible,
   });
 
-  factory SpotSettings.fromJson(Map<String, dynamic> json) => _$SpotSettingsFromJson(json);
+  factory SpotSettings.fromJson(Map<String, dynamic> json) =>
+      _$SpotSettingsFromJson(json);
 
   Map<String, dynamic> toJson() => _$SpotSettingsToJson(this);
 }

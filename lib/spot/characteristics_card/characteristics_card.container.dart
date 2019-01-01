@@ -11,13 +11,10 @@ class CharacteristicsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return StoreConnector<AppState, CharacteristicsCardViewModel>(
         converter: (Store<AppState> store) {
-      
-      return CharacteristicsCardViewModel.from(store, context);
+      return CharacteristicsCardViewModel.fromStore(store, context);
     }, builder: (context, viewModel) {
-      
       return CharacteristicsCardView(
         characteristicList: viewModel.characteristicList,
         onHelpPressed: viewModel.onHelpPressed,
@@ -25,4 +22,3 @@ class CharacteristicsCard extends StatelessWidget {
     });
   }
 }
-

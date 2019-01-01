@@ -17,9 +17,9 @@ class DynamicMap extends StatefulWidget {
 
   @override
   State createState() => DynamicMapState(
-    clientId: this.clientId,
-    initialCameraPosition: initialCameraPosition,
-  );
+        clientId: this.clientId,
+        initialCameraPosition: initialCameraPosition,
+      );
 }
 
 class DynamicMapState extends State<DynamicMap> {
@@ -29,40 +29,37 @@ class DynamicMapState extends State<DynamicMap> {
   Store<AppState> store;
   DynamicMapViewModel viewModel;
 
-  DynamicMapState({@required this.clientId, @required this.initialCameraPosition});
+  DynamicMapState(
+      {@required this.clientId, @required this.initialCameraPosition});
 
   @override
   Widget build(BuildContext context) {
     store = StoreProvider.of<AppState>(context);
     viewModel = DynamicMapViewModel(
-      store: this.store, 
-      clientId: clientId,
-      initialCameraPosition: this.initialCameraPosition
-    );
+        store: this.store,
+        clientId: clientId,
+        initialCameraPosition: this.initialCameraPosition);
 
     return GoogleMap.GoogleMap(
-        onMapCreated: _onMapCreated,
-        options: _getMapOptions()
-    );
+        onMapCreated: _onMapCreated, options: _getMapOptions());
   }
- 
+
   void _onMapCreated(GoogleMap.GoogleMapController controller) {
-    setState(() { 
+    setState(() {
       mapController = controller;
       viewModel.intialize(controller);
     });
   }
 
-  GoogleMap.GoogleMapOptions _getMapOptions(){
-    if(!viewModel.isMapCreated())
+  GoogleMap.GoogleMapOptions _getMapOptions() {
+    if (!viewModel.isMapCreated())
       return GoogleMap.GoogleMapOptions(
-        cameraPosition: viewModel.getInitialCameraPosition(), 
-        trackCameraPosition: true
-      );
+          cameraPosition: viewModel.getInitialCameraPosition(),
+          trackCameraPosition: true);
 
     return GoogleMap.GoogleMapOptions(trackCameraPosition: true);
   }
-  
+
   @override
   void dispose() {
     super.dispose();

@@ -11,25 +11,21 @@ typedef void OnDisposeCallback();
 class MediaGallery extends StatelessWidget {
   final OnDisposeCallback onDispose;
 
-  MediaGallery({
-    @required this.onDispose
-  });
+  MediaGallery({@required this.onDispose});
 
   @override
   Widget build(BuildContext context) {
-    
     return StoreConnector<AppState, MediaGalleryViewModel>(
         converter: (Store<AppState> store) {
-      
       return MediaGalleryViewModel.from(
-        context: context, 
-        store: store, 
+        context: context,
+        store: store,
         onDispose: this.onDispose,
       );
     }, builder: (context, viewModel) {
-      
-      return new MediaGalleryView(viewModel: viewModel,);
+      return new MediaGalleryView(
+        viewModel: viewModel,
+      );
     });
   }
 }
-

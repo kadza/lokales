@@ -19,27 +19,27 @@ class SpotDetailsPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            expandedHeight: 200,
-            floating: false,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title:  Text(
-                  this.viewModel.title,
-                ),
-              background: Image.asset(
-                this.viewModel.titleImagePath, 
-                fit: BoxFit.cover,
-              ),
-              centerTitle: false,
-              collapseMode: CollapseMode.parallax,
+        body: CustomScrollView(
+      slivers: <Widget>[
+        SliverAppBar(
+          expandedHeight: 200,
+          floating: false,
+          pinned: true,
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text(
+              this.viewModel.title,
             ),
+            background: Image.asset(
+              this.viewModel.titleImagePath,
+              fit: BoxFit.cover,
+            ),
+            centerTitle: false,
+            collapseMode: CollapseMode.parallax,
           ),
+        ),
         SliverList(
-        delegate: SliverChildListDelegate(
-             <Widget>[
+          delegate: SliverChildListDelegate(
+            <Widget>[
               IcmCard(),
               WeatherCard(),
               NavigationCard(),
@@ -47,10 +47,9 @@ class SpotDetailsPageView extends StatelessWidget {
               CharacteristicsCard(),
               DescriptionCard(),
             ],
-      ),
-          )
-        ],
-      ) 
-    );
+          ),
+        )
+      ],
+    ));
   }
 }

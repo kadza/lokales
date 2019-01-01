@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart' show SynchronousFuture;
 import 'package:flutter/material.dart';
+
 import 'en.dart';
 import 'pl.dart';
 
@@ -38,15 +39,15 @@ class AppLocalizations {
   String get windguruWeatherForecast {
     return _localizedValues[locale.languageCode]['windguru-weather-forecast'];
   }
-  
+
   String get spotLocation {
     return _localizedValues[locale.languageCode]['spot-location'];
   }
-  
+
   String get navigation {
     return _localizedValues[locale.languageCode]['navigation'];
   }
-  
+
   String get goToSpot {
     return _localizedValues[locale.languageCode]['go-to-spot'];
   }
@@ -54,7 +55,7 @@ class AppLocalizations {
   String get goHome {
     return _localizedValues[locale.languageCode]['go-home'];
   }
-  
+
   String get open {
     return _localizedValues[locale.languageCode]['open'];
   }
@@ -62,7 +63,7 @@ class AppLocalizations {
   String get spotCharacteristics {
     return _localizedValues[locale.languageCode]['spot-characteristics'];
   }
-  
+
   String get description {
     return _localizedValues[locale.languageCode]['description'];
   }
@@ -83,7 +84,7 @@ class AppLocalizations {
   String get shallowWater {
     return _localizedValues[locale.languageCode]['shallow-water'];
   }
-  
+
   String get deepWater {
     return _localizedValues[locale.languageCode]['deep-water'];
   }
@@ -91,7 +92,7 @@ class AppLocalizations {
   String get flatWater {
     return _localizedValues[locale.languageCode]['flat-water'];
   }
-  
+
   String get waves {
     return _localizedValues[locale.languageCode]['waves'];
   }

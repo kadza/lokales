@@ -2,10 +2,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import './weather_card.view_model.dart';
-import '../../l10n/app_localization.dart';
-import '../details_card.dart';
-import '../../ui/circular_button.view.dart';
 import '../../presentation/lokales_icons.dart';
+import '../../ui/circular_button.view.dart';
+import '../details_card.dart';
 
 // TODO: Weather forcast translation
 
@@ -18,7 +17,6 @@ class WeatherCardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return new DetailsCard(
       title: "Weather forecast",
       child: Row(

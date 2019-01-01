@@ -21,11 +21,11 @@ class NavigationCardView extends StatelessWidget {
         child: new Row(
           children: <Widget>[
             CircularButtonView(
-              icon: Icon(Lokales.logo), 
+              icon: Icon(Lokales.logo),
               onTap: viewModel.goToSpot,
             ),
             CircularButtonView(
-              icon: Icon(Icons.home), 
+              icon: Icon(Icons.home),
               onTap: viewModel.goHome,
             ),
           ],

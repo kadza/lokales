@@ -5,7 +5,7 @@ import '../spot.selector.dart';
 import '../spot.state.dart';
 
 @immutable
-class SpotDetailsPageViewModel{
+class SpotDetailsPageViewModel {
   final String title;
   final String titleImagePath;
 
@@ -13,7 +13,7 @@ class SpotDetailsPageViewModel{
     this.title,
     this.titleImagePath,
   });
-  
+
   factory SpotDetailsPageViewModel.from(
       Store<SpotStateContainer> spotStateStore) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);

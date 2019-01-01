@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class IconSymbol extends StatelessWidget {
   final IconData icon;
-  
+
   IconSymbol({
     Key key,
     @required this.icon,
@@ -21,13 +21,8 @@ class IconSymbol extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(5),
-        child: Icon(
-          this.icon, 
-          color: Colors.black, 
-          size: 40
-        )
-      ),
+          padding: EdgeInsets.all(5),
+          child: Icon(this.icon, color: Colors.black, size: 40)),
     );
   }
 }
