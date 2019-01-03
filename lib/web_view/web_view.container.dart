@@ -15,10 +15,13 @@ class WebView extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, WebViewViewModel>(
         converter: (Store<AppState> store) {
-      return WebViewViewModel.from(store, this.title);
+      return WebViewViewModel.fromStore(store, this.title);
     }, builder: (context, viewModel) {
       return WebViewView(
-        viewModel: viewModel,
+        title: viewModel.title,
+        url: viewModel.url,
+        withZoom: viewModel.withZoom,
+        withLocalStorage: viewModel.withLocalStorage,
       );
     });
   }

@@ -9,7 +9,8 @@ final spotReducer = combineReducers<SpotState>([
 
 SpotState _selectSpot(SpotState state, SelectSpotAction selectSpotAction) {
   return SpotState(
-      entities: state.entities,
-      settings: state.settings,
-      selectedSpotId: selectSpotAction.spotId);
+    entities: state.entities,
+    settings: state.settings,
+    selectedSpotId: selectSpotAction.spotId,
+  );
 }

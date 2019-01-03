@@ -12,23 +12,26 @@ class SettingsDrawer extends Drawer {
         child: ListView(
       children: <Widget>[
         Container(
-            height: 80,
-            child: DrawerHeader(
-                padding: EdgeInsets.all(10),
-                child: Image.asset(
-                  'images/tlogo.png',
-                  alignment: Alignment.centerLeft,
-                ))),
+          height: 80,
+          child: DrawerHeader(
+            padding: EdgeInsets.all(10),
+            child: Image.asset(
+              'images/tlogo.png',
+              alignment: Alignment.centerLeft,
+            ),
+          ),
+        ),
         ListTile(
           leading: Icon(Icons.home),
           title: Text(AppLocalizations.of(context).homeAddress),
           onTap: () {
             Navigator.of(context).pop();
             Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HomeLocation(),
-                ));
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeLocation(),
+              ),
+            );
           },
         ),
       ],

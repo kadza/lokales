@@ -14,8 +14,9 @@ class SpotDetailsPageViewModel {
     this.titleImagePath,
   });
 
-  factory SpotDetailsPageViewModel.from(
-      Store<SpotStateContainer> spotStateStore) {
+  factory SpotDetailsPageViewModel.fromStore(
+    Store<SpotStateContainer> spotStateStore,
+  ) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);
 
     return SpotDetailsPageViewModel(

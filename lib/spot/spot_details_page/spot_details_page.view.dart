@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import './spot_details_page.view_model.dart';
 import '../characteristics_card/characteristics_card.container.dart';
 import '../description_card/description_card.container.dart';
 import '../icm_card/icm_card.container.dart';
@@ -10,11 +9,14 @@ import '../navigation_card/navigation_card.container.dart';
 import '../weather_card/weather_card.container.dart';
 
 class SpotDetailsPageView extends StatelessWidget {
-  final SpotDetailsPageViewModel viewModel;
+  final String title;
+  final String titleImagePath;
 
   SpotDetailsPageView({
-    @required this.viewModel,
-  });
+    Key key,
+    @required this.title,
+    @required this.titleImagePath,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +29,10 @@ class SpotDetailsPageView extends StatelessWidget {
           pinned: true,
           flexibleSpace: FlexibleSpaceBar(
             title: Text(
-              this.viewModel.title,
+              title,
             ),
             background: Image.asset(
-              this.viewModel.titleImagePath,
+              titleImagePath,
               fit: BoxFit.cover,
             ),
             centerTitle: false,

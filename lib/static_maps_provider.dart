@@ -10,7 +10,7 @@ class StaticMap extends StatefulWidget {
   StaticMap(this.googleMapsApiKey,
       {this.width, this.height, this.locations, this.zoom});
   @override
-  _StaticMapState createState() => new _StaticMapState();
+  _StaticMapState createState() => _StaticMapState();
 }
 
 class _StaticMapState extends State<StaticMap> {
@@ -26,7 +26,7 @@ class _StaticMapState extends State<StaticMap> {
 
   _buildUrl(List locations, int width, int height) {
     var finalUri;
-    var baseUri = new Uri(
+    var baseUri = Uri(
         scheme: 'https',
         host: 'maps.googleapis.com',
         port: 443,
@@ -41,7 +41,7 @@ class _StaticMapState extends State<StaticMap> {
         'key': '${widget.googleMapsApiKey}',
       });
     } else {
-      List<String> markers = new List();
+      List<String> markers = List();
       widget.locations.forEach((location) {
         var lat = location['latitude'];
         var lng = location['longitude'];
@@ -69,10 +69,10 @@ class _StaticMapState extends State<StaticMap> {
     }
     _buildUrl(widget.locations, widget.width ?? defaultWidth,
         widget.height ?? defaultHeight);
-    return new Container(
-        child: new FadeInImage(
-      placeholder: new NetworkImage(startUrl),
-      image: new NetworkImage(nextUrl),
+    return Container(
+        child: FadeInImage(
+      placeholder: NetworkImage(startUrl),
+      image: NetworkImage(nextUrl),
     ));
   }
 }

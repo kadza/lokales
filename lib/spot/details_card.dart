@@ -7,10 +7,11 @@ class DetailsCard extends StatelessWidget {
   final VoidCallback onHelpTap;
 
   DetailsCard({
+    Key key,
     @required this.title,
     @required this.child,
     this.onHelpTap,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

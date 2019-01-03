@@ -12,7 +12,7 @@ class LegendDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SimpleDialog(
-      title: new Text(AppLocalizations.of(context).legend),
+      title: Text(AppLocalizations.of(context).legend),
       children: <Widget>[
         Container(),
         _getColumnItem(

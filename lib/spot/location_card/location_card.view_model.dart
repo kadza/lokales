@@ -11,7 +11,9 @@ class LocationCardViewModel {
 
   LocationCardViewModel({@required this.location});
 
-  factory LocationCardViewModel.from(Store<SpotStateContainer> spotStateStore) {
+  factory LocationCardViewModel.fromStore(
+    Store<SpotStateContainer> spotStateStore,
+  ) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);
 
     return LocationCardViewModel(location: selectedSpot.location);

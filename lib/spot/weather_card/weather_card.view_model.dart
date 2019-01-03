@@ -15,9 +15,13 @@ class WeatherCardViewModel {
   final Uri _windyUrl;
 
   WeatherCardViewModel(
-      this._store, this._context, this._windguruUrl, this._windyUrl);
+    this._store,
+    this._context,
+    this._windguruUrl,
+    this._windyUrl,
+  );
 
-  factory WeatherCardViewModel.from(
+  factory WeatherCardViewModel.fromStore(
     Store<SpotStateContainer> store,
     BuildContext context,
   ) {
@@ -31,26 +35,25 @@ class WeatherCardViewModel {
     );
   }
 
-  void onWindguruTap() {
-    this._onTap(this._windguruUrl, "Windguru");
+  void onWindguruPressed() {
+    this._onPressed(this._windguruUrl, "Windguru");
   }
 
-  void onWindyTap() {
-    this._onTap(this._windyUrl, "Windy.com");
+  void onWindyPressed() {
+    this._onPressed(this._windyUrl, "Windy.com");
   }
 
-  void _onTap(Uri uri, String title) {
+  void _onPressed(Uri uri, String title) {
     this._store.dispatch(
-        InitializeWebViewAction(uri: uri, withZoom: true, localStorage: true));
+          InitializeWebViewAction(
+            uri: uri,
+            withZoom: true,
+            withLocalStorage: true,
+          ),
+        );
 
     Navigator.of(this._context).push(
-      new MaterialPageRoute(
-        builder: (context) {
-          return new WebView(
-            title: title,
-          );
-        },
-      ),
+      MaterialPageRoute(builder: (context) => WebView(title: title)),
     );
   }
 }

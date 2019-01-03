@@ -11,10 +11,11 @@ class SpotListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, SpotListPageViewModel>(
         converter: (Store<AppState> store) {
-      return SpotListPageViewModel.from(store);
+      return SpotListPageViewModel.fromStore(store);
     }, builder: (context, viewModel) {
       return SpotListPageView(
-        viewModel: viewModel,
+        spotList: viewModel.spotList,
+        selectSpot: viewModel.selectSpot,
       );
     });
   }

@@ -10,8 +10,9 @@ class DescriptionCardViewModel {
 
   DescriptionCardViewModel({this.description});
 
-  factory DescriptionCardViewModel.from(
-      Store<SpotStateContainer> spotStateStore) {
+  factory DescriptionCardViewModel.fromStore(
+    Store<SpotStateContainer> spotStateStore,
+  ) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);
 
     return DescriptionCardViewModel(description: selectedSpot.description);

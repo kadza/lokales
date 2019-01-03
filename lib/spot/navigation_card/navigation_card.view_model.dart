@@ -8,15 +8,15 @@ import '../spot.selector.dart';
 import '../spot.state.dart';
 
 class NavigationCardViewModel {
-  final Function goHome;
-  final Function goToSpot;
+  final VoidCallback goHome;
+  final VoidCallback goToSpot;
 
   NavigationCardViewModel({
     @required this.goHome,
     @required this.goToSpot,
   });
 
-  factory NavigationCardViewModel.from(
+  factory NavigationCardViewModel.fromStore(
       Store<HomeLocationStateContainer> homeLocationStateStore,
       Store<SpotStateContainer> spotStateStore) {
     final homeLocation = homeLocationSelector(homeLocationStateStore.state);
@@ -24,9 +24,11 @@ class NavigationCardViewModel {
 
     return NavigationCardViewModel(
       goHome: () => spotStateStore.dispatch(
-          LaunchNavigationAction(destinationLocation: homeLocation.target)),
+            LaunchNavigationAction(destinationLocation: homeLocation.target),
+          ),
       goToSpot: () => spotStateStore.dispatch(
-          LaunchNavigationAction(destinationLocation: spot.location.target)),
+            LaunchNavigationAction(destinationLocation: spot.location.target),
+          ),
     );
   }
 }

@@ -10,16 +10,16 @@ class WebViewViewModel {
   final Uri url;
   final String title;
   final bool withZoom;
-  final bool localStorage;
+  final bool withLocalStorage;
 
   WebViewViewModel({
     @required this.url,
     @required this.title,
     @required this.withZoom,
-    @required this.localStorage,
+    @required this.withLocalStorage,
   });
 
-  factory WebViewViewModel.from(
+  factory WebViewViewModel.fromStore(
     Store<WebViewStateContainer> store,
     String title,
   ) {
@@ -29,7 +29,7 @@ class WebViewViewModel {
       url: state.uri,
       title: title,
       withZoom: state.withZoom,
-      localStorage: state.localStorage,
+      withLocalStorage: state.withLocalStorage,
     );
   }
 }

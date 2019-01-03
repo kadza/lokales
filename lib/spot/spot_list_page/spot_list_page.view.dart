@@ -9,9 +9,11 @@ import '../spot_details_page/spot_details_page.container.dart';
 typedef void SpotTappedCallback(Spot spot);
 
 class SpotListItem extends StatelessWidget {
-  SpotListItem({@required Spot spot, @required this.onSpotTapped})
-      : spot = spot,
-        super(key: new ObjectKey(spot));
+  SpotListItem({
+    @required Spot spot,
+    @required this.onSpotTapped,
+  })  : spot = spot,
+        super(key: ObjectKey(spot));
 
   final Spot spot;
   final SpotTappedCallback onSpotTapped;
@@ -19,40 +21,39 @@ class SpotListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      onTap: () {
-        onSpotTapped(spot);
-      },
-      title: new Text(spot.name),
+      onTap: () => onSpotTapped(spot),
+      title: Text(spot.name),
     );
   }
 }
 
 class SpotListPageView extends StatefulWidget {
-  final SpotListPageViewModel viewModel;
+  final List<Spot> spotList;
+  final SelectSpot selectSpot;
 
-  SpotListPageView({Key key, this.viewModel}) : super(key: key);
+  SpotListPageView({
+    Key key,
+    @required this.spotList,
+    @required this.selectSpot,
+  }) : super(key: key);
 
   @override
-  _SpotListState createState() => new _SpotListState();
+  _SpotListState createState() => _SpotListState();
 }
 
 class _SpotListState extends State<SpotListPageView> {
   void _pushSpotDetailsPage(Spot spot) {
-    widget.viewModel.selectSpot(spot.id);
+    widget.selectSpot(spot.id);
 
     Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) {
-          return SpotDetailsPage();
-        },
-      ),
+      MaterialPageRoute(builder: (context) => SpotDetailsPage()),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: new SettingsDrawer(),
+        drawer: SettingsDrawer(),
         body: CustomScrollView(
           slivers: <Widget>[
             SliverAppBar(
@@ -72,12 +73,13 @@ class _SpotListState extends State<SpotListPageView> {
               ),
             ),
             SliverList(
-                delegate: SliverChildBuilderDelegate((context, index) {
-              return SpotListItem(
-                spot: this.widget.viewModel.spotList[index],
-                onSpotTapped: _pushSpotDetailsPage,
-              );
-            }, childCount: this.widget.viewModel.spotList.length)),
+              delegate: SliverChildBuilderDelegate((context, index) {
+                return SpotListItem(
+                  spot: widget.spotList[index],
+                  onSpotTapped: _pushSpotDetailsPage,
+                );
+              }, childCount: widget.spotList.length),
+            ),
           ],
         ));
   }

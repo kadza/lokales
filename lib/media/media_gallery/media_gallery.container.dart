@@ -23,7 +23,7 @@ class MediaGallery extends StatelessWidget {
         onDispose: this.onDispose,
       );
     }, builder: (context, viewModel) {
-      return new MediaGalleryView(
+      return MediaGalleryView(
         viewModel: viewModel,
       );
     });

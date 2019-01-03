@@ -11,10 +11,11 @@ class NavigationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, NavigationCardViewModel>(
         converter: (Store<AppState> store) {
-      return NavigationCardViewModel.from(store, store);
+      return NavigationCardViewModel.fromStore(store, store);
     }, builder: (context, viewModel) {
       return NavigationCardView(
-        viewModel: viewModel,
+        goToSpot: viewModel.goToSpot,
+        goHome: viewModel.goHome,
       );
     });
   }

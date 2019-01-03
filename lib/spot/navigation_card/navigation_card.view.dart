@@ -1,32 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import './navigation_card.view_model.dart';
 import '../../l10n/app_localization.dart';
 import '../../presentation/lokales_icons.dart';
 import '../../ui/circular_button.view.dart';
 import '../details_card.dart';
 
 class NavigationCardView extends StatelessWidget {
-  final NavigationCardViewModel viewModel;
+  final VoidCallback goToSpot;
+  final VoidCallback goHome;
 
   NavigationCardView({
-    @required this.viewModel,
+    @required this.goToSpot,
+    @required this.goHome,
   });
 
   @override
   Widget build(BuildContext context) {
-    return new DetailsCard(
+    return DetailsCard(
         title: AppLocalizations.of(context).navigation,
-        child: new Row(
+        child: Row(
           children: <Widget>[
             CircularButtonView(
               icon: Icon(Lokales.logo),
-              onTap: viewModel.goToSpot,
+              onTap: () => goToSpot,
             ),
             CircularButtonView(
               icon: Icon(Icons.home),
-              onTap: viewModel.goHome,
+              onTap: () => goHome,
             ),
           ],
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

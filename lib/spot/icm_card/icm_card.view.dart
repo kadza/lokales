@@ -1,15 +1,20 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import './icm_card.view_model.dart';
 import '../../l10n/app_localization.dart';
 import '../../media/image_hero.view.dart';
+import '../../media/media_model.dart';
 import '../details_card.dart';
 
 class IcmCardView extends StatelessWidget {
-  final IcmCardViewModel viewModel;
+  final Media media;
+  final VoidCallback onPressed;
 
-  IcmCardView({@required this.viewModel});
+  IcmCardView({
+    Key key,
+    @required this.media,
+    @required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +24,8 @@ class IcmCardView extends StatelessWidget {
         height: 300,
         width: 300,
         child: ImageHero(
-          media: viewModel.media,
-          onTap: viewModel.onTap,
+          media: media,
+          onTap: onPressed,
         ),
       ),
     );

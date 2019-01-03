@@ -23,13 +23,14 @@ class CharacteristicsCardView extends StatelessWidget {
     return DetailsCard(
       title: AppLocalizations.of(context).spotCharacteristics,
       child: Column(
-          children: characteristicList
-              .map((characteristic) => _getCharacteristics(
-                    characteristic,
-                    context,
-                    characteristicList.length > 1,
-                  ))
-              .toList()),
+        children: characteristicList
+            .map((characteristic) => _getCharacteristics(
+                  characteristic,
+                  context,
+                  characteristicList.length > 1,
+                ))
+            .toList(),
+      ),
       onHelpTap: onHelpPressed,
     );
   }
@@ -46,25 +47,26 @@ class CharacteristicsCardView extends StatelessWidget {
     final waveIcon = characteristics.isWaterFlat ? Lokales.flat : Lokales.waves;
 
     return Column(
-        children: () sync* {
-      if (isNameVisible)
+      children: () sync* {
+        if (isNameVisible)
+          yield Padding(
+            padding: EdgeInsets.only(bottom: 15),
+            child: Text(characteristics.name),
+          );
         yield Padding(
-          padding: EdgeInsets.only(bottom: 15),
-          child: Text(characteristics.name),
-        );
-      yield Padding(
-          padding: EdgeInsets.only(bottom: 15),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              WindDirectionSymbol(
-                windDirections: characteristics.windDirections,
-              ),
-              IconSymbol(icon: waterLevelIcon),
-              IconSymbol(icon: waveIcon),
-            ],
-          ));
-    }()
-            .toList());
+            padding: EdgeInsets.only(bottom: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                WindDirectionSymbol(
+                  windDirections: characteristics.windDirections,
+                ),
+                IconSymbol(icon: waterLevelIcon),
+                IconSymbol(icon: waveIcon),
+              ],
+            ));
+      }()
+          .toList(),
+    );
   }
 }

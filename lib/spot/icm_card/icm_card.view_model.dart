@@ -22,7 +22,7 @@ class IcmCardViewModel {
     @required this.media,
   });
 
-  factory IcmCardViewModel.from(
+  factory IcmCardViewModel.fromStore(
     Store<SpotStateContainer> spotStateStore,
     BuildContext context,
   ) {
@@ -38,22 +38,22 @@ class IcmCardViewModel {
     );
   }
 
-  void onTap() {
-    this.store.dispatch(AddMediaAction(
-          media: this.media,
-        ));
+  void onPressed() {
+    this.store.dispatch(AddMediaAction(media: this.media));
 
     Navigator.of(this.context).push(
       MaterialPageRoute(builder: (context) {
         return MediaGallery(
-            onDispose: () => this.store.dispatch(ClearMediaAction()));
+          onDispose: () => this.store.dispatch(ClearMediaAction()),
+        );
       }),
     );
   }
 
   static Uri getUri(RowColumn location) {
     return Uri.tryParse(
-        "${getIcmForecastUri(location)}&${getDateQueryParamater()}");
+      "${getIcmForecastUri(location)}&${getDateQueryParamater()}",
+    );
   }
 
   static String getIcmForecastUri(RowColumn location) {
@@ -61,8 +61,8 @@ class IcmCardViewModel {
   }
 
   static String getDateQueryParamater() {
-    var now = new DateTime.now();
-    var dateFormatter = new DateFormat('YYYYYMMDDHH');
+    var now = DateTime.now();
+    var dateFormatter = DateFormat('YYYYYMMDDHH');
     return "date=${dateFormatter.format(now)}";
   }
 }

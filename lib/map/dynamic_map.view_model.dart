@@ -21,7 +21,7 @@ class DynamicMapViewModel {
       @required this.initialCameraPosition});
 
   GoogleMap.CameraPosition getInitialCameraPosition() {
-    store.dispatch(InitializeMapAction(
+    store.dispatch(SetCameraPositionAction(
         clientId: this.clientId, cameraPosition: this.initialCameraPosition));
 
     return this.initialCameraPosition.toCameraPosition();
@@ -48,7 +48,7 @@ class DynamicMapViewModel {
       if (isMapCreatedSelector(store.state, clientId) &&
           !cameraPositionMapSelector(store.state)[clientId]
               .equals(this.mapController.cameraPosition))
-        store.dispatch(AnimateMapAction(
+        store.dispatch(SetCameraPositionAction(
             cameraPosition: CameraPosition.fromCameraPosition(
                 this.mapController.cameraPosition),
             clientId: this.clientId));

@@ -18,7 +18,9 @@ class CharacteristicsCardViewModel {
   });
 
   factory CharacteristicsCardViewModel.fromStore(
-      Store<SpotStateContainer> store, BuildContext context) {
+    Store<SpotStateContainer> store,
+    BuildContext context,
+  ) {
     final selectedSpot = selectedSpotSelector(store.state);
 
     return CharacteristicsCardViewModel(
@@ -29,9 +31,8 @@ class CharacteristicsCardViewModel {
 
   void onHelpPressed() {
     showDialog(
-        context: this.context,
-        builder: (BuildContext context) {
-          return LegendDialog();
-        });
+      context: this.context,
+      builder: (BuildContext context) => LegendDialog(),
+    );
   }
 }

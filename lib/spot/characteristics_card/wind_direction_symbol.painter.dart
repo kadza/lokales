@@ -7,7 +7,7 @@ import '../spot.model.dart';
 class WindDirectionSymbolPainter extends CustomPainter {
   final Color color;
   final double sideLength;
-  final Iterable windDirections;
+  final Iterable<WindDirection> windDirections;
 
   WindDirectionSymbolPainter({
     @required this.color,
@@ -31,7 +31,8 @@ class WindDirectionSymbolPainter extends CustomPainter {
     return false;
   }
 
-  static Path _getCombinedPath(Iterable windDirections, double sideLength) {
+  static Path _getCombinedPath(
+      Iterable<WindDirection> windDirections, double sideLength) {
     return windDirections
         .map((windDirection) => _getPath(windDirection, sideLength))
         .reduce((v, e) => Path.combine(PathOperation.union, v, e));

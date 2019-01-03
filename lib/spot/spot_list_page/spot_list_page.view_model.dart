@@ -13,13 +13,20 @@ class SpotListPageViewModel {
   final List<Spot> spotList;
   final SelectSpot selectSpot;
 
-  SpotListPageViewModel({@required this.spotList, @required this.selectSpot});
+  SpotListPageViewModel({
+    @required this.spotList,
+    @required this.selectSpot,
+  });
 
-  factory SpotListPageViewModel.from(Store<SpotStateContainer> spotStateStore) {
+  factory SpotListPageViewModel.fromStore(
+      Store<SpotStateContainer> spotStateStore) {
     final spotList = selectAll(spotStateStore.state);
-    final selectSpot =
-        (spotId) => spotStateStore.dispatch(SelectSpotAction(spotId: spotId));
+    final selectSpot = (String spotId) =>
+        spotStateStore.dispatch(SelectSpotAction(spotId: spotId));
 
-    return SpotListPageViewModel(spotList: spotList, selectSpot: selectSpot);
+    return SpotListPageViewModel(
+      spotList: spotList,
+      selectSpot: selectSpot,
+    );
   }
 }

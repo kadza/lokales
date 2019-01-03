@@ -13,7 +13,7 @@ class HomeLocation extends StatelessWidget {
         converter: (Store<AppState> store) {
       return HomeLocationViewModel.from(store, store);
     }, builder: (context, viewModel) {
-      return new HomeLocationView(
+      return HomeLocationView(
         viewModel: viewModel,
       );
     });

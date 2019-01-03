@@ -8,7 +8,9 @@ part 'spot.action.g.dart';
 class SelectSpotAction {
   final String spotId;
 
-  SelectSpotAction({@required this.spotId});
+  SelectSpotAction({
+    @required this.spotId,
+  });
 
   factory SelectSpotAction.fromJson(Map<String, dynamic> json) =>
       _$SelectSpotActionFromJson(json);

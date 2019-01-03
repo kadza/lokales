@@ -11,10 +11,11 @@ class SpotDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, SpotDetailsPageViewModel>(
         converter: (Store<AppState> store) {
-      return SpotDetailsPageViewModel.from(store);
+      return SpotDetailsPageViewModel.fromStore(store);
     }, builder: (context, viewModel) {
       return SpotDetailsPageView(
-        viewModel: viewModel,
+        title: viewModel.title,
+        titleImagePath: viewModel.titleImagePath,
       );
     });
   }

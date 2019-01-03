@@ -11,10 +11,11 @@ class WeatherCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, WeatherCardViewModel>(
         converter: (Store<AppState> store) {
-      return WeatherCardViewModel.from(store, context);
+      return WeatherCardViewModel.fromStore(store, context);
     }, builder: (context, viewModel) {
       return WeatherCardView(
-        viewModel: viewModel,
+        onWindguruPressed: viewModel.onWindguruPressed,
+        onWindyPressed: viewModel.onWindyPressed,
       );
     });
   }

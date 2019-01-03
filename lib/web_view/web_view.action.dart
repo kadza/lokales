@@ -8,12 +8,12 @@ part 'web_view.action.g.dart';
 class InitializeWebViewAction {
   final Uri uri;
   final bool withZoom;
-  final bool localStorage;
+  final bool withLocalStorage;
 
   InitializeWebViewAction({
     @required this.uri,
     @required this.withZoom,
-    @required this.localStorage,
+    @required this.withLocalStorage,
   });
 
   factory InitializeWebViewAction.fromJson(Map<String, dynamic> json) =>

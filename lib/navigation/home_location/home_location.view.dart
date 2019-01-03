@@ -15,7 +15,7 @@ class HomeLocationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new WillPopScope(
+    return WillPopScope(
         onWillPop: this._onWillPop,
         child: Scaffold(
           appBar: AppBar(title: Text("Adres domowy")),

@@ -11,10 +11,10 @@ class DescriptionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, DescriptionCardViewModel>(
         converter: (Store<AppState> store) {
-      return DescriptionCardViewModel.from(store);
+      return DescriptionCardViewModel.fromStore(store);
     }, builder: (context, viewModel) {
       return DescriptionCardView(
-        viewModel: viewModel,
+        description: viewModel.description,
       );
     });
   }

@@ -7,7 +7,7 @@ import './spot/spot_list_page/spot_list_page.container.dart';
 import 'l10n/app_localization.dart';
 import 'state.dart';
 
-void main() => runApp(new App());
+void main() => runApp(App());
 
 class App extends StatelessWidget {
   final Store<AppState> store;
@@ -17,12 +17,12 @@ class App extends StatelessWidget {
     Key key,
     this.store,
     this.devDrawerBuilder,
-  }): super(key: key);
-  
+  }) : super(key: key);
+
   Widget build(BuildContext context) {
     return StoreProvider(
         store: store,
-        child: new MaterialApp(
+        child: MaterialApp(
             localizationsDelegates: [
               const AppLocalizationsDelegate(),
               GlobalMaterialLocalizations.delegate,
@@ -32,22 +32,22 @@ class App extends StatelessWidget {
               const Locale('en', ''),
               const Locale('pl', ''),
             ],
-            theme: new ThemeData(
+            theme: ThemeData(
               primaryColor: Colors.black,
               fontFamily: 'Futura',
             ),
             title: 'Lokales',
-            home: new AppContent(store: store)));
+            home: AppContent(store: store)));
   }
 }
 
 class AppContent extends StatelessWidget {
   final Store<AppState> store;
-  
+
   AppContent({
     Key key,
     this.store,
-  }): super(key: key);
+  }) : super(key: key);
 
   Widget build(BuildContext context) {
     return StoreProvider(

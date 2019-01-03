@@ -1,0 +1,15 @@
+analyzer:
+  strong-mode:
+    implicit-casts: false
+  errors:
+    todo: ignore
+  exclude:
+    - flutter/**
+    - lib/api/*.dart
+    - lib/presentation/lokales_icons.dart
+
+linter:
+  rules:
+    - avoid_empty_else
+    - unnecessary_const
+    - unnecessary_new

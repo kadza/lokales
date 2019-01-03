@@ -11,9 +11,15 @@ class IcmCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, IcmCardViewModel>(
         converter: (Store<AppState> store) {
-      return IcmCardViewModel.from(store, context);
+      return IcmCardViewModel.fromStore(
+        store,
+        context,
+      );
     }, builder: (context, viewModel) {
-      return IcmCardView(viewModel: viewModel);
+      return IcmCardView(
+        media: viewModel.media,
+        onPressed: viewModel.onPressed,
+      );
     });
   }
 }

@@ -12,7 +12,7 @@ WebViewState _initialize(WebViewState state, InitializeWebViewAction action) {
   return WebViewState(
     uri: action.uri,
     withZoom: action.withZoom,
-    localStorage: action.localStorage,
+    withLocalStorage: action.withLocalStorage,
   );
 }
 

@@ -16,7 +16,7 @@ class CircularButtonView extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           shape: BoxShape.circle,
-          border: new Border.all(
+          border: Border.all(
             color: Colors.black,
             width: 5,
           ),

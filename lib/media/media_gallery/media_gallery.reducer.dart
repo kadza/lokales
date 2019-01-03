@@ -10,15 +10,20 @@ final mediaGalleryReducer = combineReducers<MediaGalleryState>([
   TypedReducer<MediaGalleryState, ClearMediaAction>(_clearMedia),
 ]);
 
-MediaGalleryState _appendMedia(MediaGalleryState state, AddMediaAction action) {
+MediaGalleryState _appendMedia(
+  MediaGalleryState state,
+  AddMediaAction action,
+) {
   var entities = Map<String, Media>.from(state.entities);
   final uuid = Uuid();
-  entities[uuid.v4()] = action.media;
+  entities[uuid.v4().toString()] = action.media;
 
   return MediaGalleryState(entities: entities);
 }
 
 MediaGalleryState _clearMedia(
-    MediaGalleryState state, ClearMediaAction action) {
+  MediaGalleryState state,
+  ClearMediaAction action,
+) {
   return MediaGalleryState(entities: Map<String, Media>());
 }

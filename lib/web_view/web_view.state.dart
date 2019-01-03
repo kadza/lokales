@@ -8,12 +8,12 @@ part 'web_view.state.g.dart';
 class WebViewState {
   final Uri uri;
   final bool withZoom;
-  final bool localStorage;
+  final bool withLocalStorage;
 
   WebViewState({
     @required this.uri,
     @required this.withZoom,
-    @required this.localStorage,
+    @required this.withLocalStorage,
   });
 
   factory WebViewState.fromJson(Map<String, dynamic> json) =>

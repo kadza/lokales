@@ -16,13 +16,13 @@ part 'state.g.dart';
 
 @immutable
 @JsonSerializable()
-class AppState implements
-  HomeLocationStateContainer,
-  DynamicMapStateContainer,
-  SpotStateContainer,
-  MediaGalleryStateContainer,
-  WebViewStateContainer {
-  
+class AppState
+    implements
+        HomeLocationStateContainer,
+        DynamicMapStateContainer,
+        SpotStateContainer,
+        MediaGalleryStateContainer,
+        WebViewStateContainer {
   final HomeLocationState homeLocationState;
   final DynamicMapState dynamicMapState;
   final SpotState spotState;
@@ -46,83 +46,93 @@ class AppState implements
     final spotMapZoomLevel = 5.0;
 
     final spotMap = Map<String, Spot>.from({
-      '1': new Spot(
+      '1': Spot(
         id: '1',
         name: 'Czarnocin',
         shortName: 'Czarnocin',
-        icmImageLocation: RowColumn(row: 423, column: 227),
+        icmImageLocation: RowColumn(
+          row: 423,
+          column: 227,
+        ),
         characteristics: [
           SpotCharacteristics(
-            name: "Czarnocin",
-            isWaterDeep: false, 
-            isWaterFlat: true, 
-            windDirections: [
-              WindDirection.NW, WindDirection.SE
-            ]
-          ),
+              name: "Czarnocin",
+              isWaterDeep: false,
+              isWaterFlat: true,
+              windDirections: [WindDirection.NW, WindDirection.SE]),
         ],
         location: CameraPosition(
-            target: LatLng(latitude: 51.608700, longitude: 19.699706),
+            target: LatLng(
+              latitude: 51.608700,
+              longitude: 19.699706,
+            ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/4880'),
         windyUrl: Uri.parse('https://www.windy.com/51.590/19.680'),
         description: 'czarnocin',
         titleImagePath: 'images/czarnocin.png',
       ),
-      '2': new Spot(
+      '2': Spot(
         id: '2',
         name: 'Zalew Sulejowski - Karolinów',
         shortName: 'Karolinów',
-        icmImageLocation: RowColumn(row: 430, column: 234),
+        icmImageLocation: RowColumn(
+          row: 430,
+          column: 234,
+        ),
         characteristics: [
           SpotCharacteristics(
-            name: "Karolinów",
-            isWaterDeep: true, 
-            isWaterFlat: true, 
-            windDirections: [
-              WindDirection.SW
-            ]
-          ),
+              name: "Karolinów",
+              isWaterDeep: true,
+              isWaterFlat: true,
+              windDirections: [WindDirection.SW]),
         ],
         location: CameraPosition(
-            target: LatLng(latitude: 51.451805, longitude: 19.971582),
+            target: LatLng(
+              latitude: 51.451805,
+              longitude: 19.971582,
+            ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/32462'),
         windyUrl: Uri.parse('https://www.windy.com/51.450/19.990'),
         description: 'zalew-sulejowski',
         titleImagePath: 'images/karolinow.jpg',
       ),
-      '3': new Spot(
+      '3': Spot(
         id: '3',
         name: 'Chałupy - Chałupy 6',
         shortName: 'Chałupy 6',
-        icmImageLocation: RowColumn(row: 332, column: 206),
+        icmImageLocation: RowColumn(
+          row: 332,
+          column: 206,
+        ),
         characteristics: [
           SpotCharacteristics(
-            name: "Zatoka",
-            isWaterDeep: false, 
-            isWaterFlat: true, 
-            windDirections: [
-              WindDirection.SW,
-              WindDirection.S,
-              WindDirection.SE,
-              WindDirection.W
-            ]
-          ),
+              name: "Zatoka",
+              isWaterDeep: false,
+              isWaterFlat: true,
+              windDirections: [
+                WindDirection.SW,
+                WindDirection.S,
+                WindDirection.SE,
+                WindDirection.W
+              ]),
           SpotCharacteristics(
-            name: "Morze",
-            isWaterDeep: true, 
-            isWaterFlat: false, 
-            windDirections: [
-              WindDirection.N,
-              WindDirection.NW,
-              WindDirection.NE,
-              WindDirection.E
-            ]
-          ),
+              name: "Morze",
+              isWaterDeep: true,
+              isWaterFlat: false,
+              windDirections: [
+                WindDirection.N,
+                WindDirection.NW,
+                WindDirection.NE,
+                WindDirection.E
+              ]),
         ],
-        location: new CameraPosition(
-            target: LatLng(latitude: 54.761199, longitude: 18.499220),
+        location: CameraPosition(
+            target: LatLng(
+              latitude: 54.761199,
+              longitude: 18.499220,
+            ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/597178'),
         windyUrl: Uri.parse('https://www.windy.com/54.760/18.510'),
@@ -140,7 +150,11 @@ class AppState implements
     );
 
     final CameraPosition homeLocation = CameraPosition(
-        target: LatLng(longitude: 19.0, latitude: 51.0), zoom: 10);
+        target: LatLng(
+          longitude: 19.0,
+          latitude: 51.0,
+        ),
+        zoom: 10);
 
     return AppState(
       homeLocationState: HomeLocationState(

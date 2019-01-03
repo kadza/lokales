@@ -17,17 +17,21 @@ class WindDirectionSymbol extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         shape: BoxShape.rectangle,
-        border: new Border.all(
+        border: Border.all(
           color: Colors.black,
           width: 5,
         ),
       ),
       child: CustomPaint(
-        size: Size(50, 50),
+        size: Size(
+          50,
+          50,
+        ),
         foregroundPainter: WindDirectionSymbolPainter(
-            color: Colors.black,
-            sideLength: 50,
-            windDirections: this.windDirections),
+          color: Colors.black,
+          sideLength: 50,
+          windDirections: this.windDirections,
+        ),
       ),
     );
   }

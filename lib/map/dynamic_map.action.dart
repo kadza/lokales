@@ -3,34 +3,21 @@ import 'package:json_annotation/json_annotation.dart';
 
 import 'dynamic_map.model.dart';
 
-part 'dynamic_map.action.g.dart';
+part './dynamic_map.action.g.dart';
 
 @immutable
 @JsonSerializable()
-class AnimateMapAction {
+class SetCameraPositionAction {
   final String clientId;
   final CameraPosition cameraPosition;
 
-  AnimateMapAction({@required this.clientId, @required this.cameraPosition});
+  SetCameraPositionAction(
+      {@required this.clientId, @required this.cameraPosition});
 
-  factory AnimateMapAction.fromJson(Map<String, dynamic> json) =>
-      _$AnimateMapActionFromJson(json);
+  factory SetCameraPositionAction.fromJson(Map<String, dynamic> json) =>
+      _$SetCameraPositionActionFromJson(json);
 
-  Map<String, dynamic> toJson() => _$AnimateMapActionToJson(this);
-}
-
-@immutable
-@JsonSerializable()
-class InitializeMapAction {
-  final String clientId;
-  final CameraPosition cameraPosition;
-
-  InitializeMapAction({@required this.clientId, @required this.cameraPosition});
-
-  factory InitializeMapAction.fromJson(Map<String, dynamic> json) =>
-      _$InitializeMapActionFromJson(json);
-
-  Map<String, dynamic> toJson() => _$InitializeMapActionToJson(this);
+  Map<String, dynamic> toJson() => _$SetCameraPositionActionToJson(this);
 }
 
 @immutable

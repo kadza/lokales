@@ -6,8 +6,9 @@ part of 'dynamic_map.action.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AnimateMapAction _$AnimateMapActionFromJson(Map<String, dynamic> json) {
-  return AnimateMapAction(
+SetCameraPositionAction _$SetCameraPositionActionFromJson(
+    Map<String, dynamic> json) {
+  return SetCameraPositionAction(
       clientId: json['clientId'] as String,
       cameraPosition: json['cameraPosition'] == null
           ? null
@@ -15,23 +16,8 @@ AnimateMapAction _$AnimateMapActionFromJson(Map<String, dynamic> json) {
               json['cameraPosition'] as Map<String, dynamic>));
 }
 
-Map<String, dynamic> _$AnimateMapActionToJson(AnimateMapAction instance) =>
-    <String, dynamic>{
-      'clientId': instance.clientId,
-      'cameraPosition': instance.cameraPosition
-    };
-
-InitializeMapAction _$InitializeMapActionFromJson(Map<String, dynamic> json) {
-  return InitializeMapAction(
-      clientId: json['clientId'] as String,
-      cameraPosition: json['cameraPosition'] == null
-          ? null
-          : CameraPosition.fromJson(
-              json['cameraPosition'] as Map<String, dynamic>));
-}
-
-Map<String, dynamic> _$InitializeMapActionToJson(
-        InitializeMapAction instance) =>
+Map<String, dynamic> _$SetCameraPositionActionToJson(
+        SetCameraPositionAction instance) =>
     <String, dynamic>{
       'clientId': instance.clientId,
       'cameraPosition': instance.cameraPosition

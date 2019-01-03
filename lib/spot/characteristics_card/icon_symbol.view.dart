@@ -15,14 +15,18 @@ class IconSymbol extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         shape: BoxShape.rectangle,
-        border: new Border.all(
+        border: Border.all(
           color: Colors.black,
           width: 5,
         ),
       ),
       child: Padding(
           padding: EdgeInsets.all(5),
-          child: Icon(this.icon, color: Colors.black, size: 40)),
+          child: Icon(
+            this.icon,
+            color: Colors.black,
+            size: 40,
+          )),
     );
   }
 }

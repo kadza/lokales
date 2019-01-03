@@ -2,28 +2,33 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-import './web_view.view_model.dart';
-
 //TODO: loader
 //TODO: no network handling
 //TODO: cookies
 
 class WebViewView extends StatelessWidget {
-  final WebViewViewModel viewModel;
+  final Uri url;
+  final String title;
+  final bool withZoom;
+  final bool withLocalStorage;
 
   WebViewView({
-    @required this.viewModel,
+    Key key,
+    @required this.url,
+    @required this.title,
+    @required this.withZoom,
+    @required this.withLocalStorage,
   });
 
   @override
   Widget build(BuildContext context) {
-    return new WebviewScaffold(
-      url: viewModel.url.toString(),
-      appBar: new AppBar(
-        title: new Text(viewModel.title),
+    return WebviewScaffold(
+      url: url.toString(),
+      appBar: AppBar(
+        title: Text(title),
       ),
-      withZoom: true,
-      withLocalStorage: true,
+      withZoom: withZoom,
+      withLocalStorage: withLocalStorage,
     );
   }
 }

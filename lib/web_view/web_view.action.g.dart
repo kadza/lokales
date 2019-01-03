@@ -11,7 +11,7 @@ InitializeWebViewAction _$InitializeWebViewActionFromJson(
   return InitializeWebViewAction(
       uri: json['uri'] == null ? null : Uri.parse(json['uri'] as String),
       withZoom: json['withZoom'] as bool,
-      localStorage: json['localStorage'] as bool);
+      withLocalStorage: json['withLocalStorage'] as bool);
 }
 
 Map<String, dynamic> _$InitializeWebViewActionToJson(
@@ -19,7 +19,7 @@ Map<String, dynamic> _$InitializeWebViewActionToJson(
     <String, dynamic>{
       'uri': instance.uri?.toString(),
       'withZoom': instance.withZoom,
-      'localStorage': instance.localStorage
+      'withLocalStorage': instance.withLocalStorage
     };
 
 DisposeWebViewAction _$DisposeWebViewActionFromJson(Map<String, dynamic> json) {

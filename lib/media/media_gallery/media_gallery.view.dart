@@ -14,16 +14,18 @@ class MediaGalleryView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new WillPopScope(
+    return WillPopScope(
       onWillPop: this._onWillPop,
       child: Scaffold(
           body: Stack(
               children: () sync* {
         if (viewModel.mediaList.isNotEmpty)
           yield Positioned.fill(
-              child: ImageHero(
-                  media: viewModel.mediaList.first,
-                  onTap: () => viewModel.onTap()));
+            child: ImageHero(
+              media: viewModel.mediaList.first,
+              onTap: () => viewModel.onTap(),
+            ),
+          );
         yield Positioned(
           top: 0.0,
           left: 0.0,

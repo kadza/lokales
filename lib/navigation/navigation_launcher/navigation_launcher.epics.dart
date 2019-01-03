@@ -11,8 +11,8 @@ import '../../state.dart';
 
 Stream<dynamic> launchNavigationEpic(
     Stream<dynamic> actions, EpicStore<AppState> store) {
-  return new Observable(actions)
-      .ofType(new TypeToken<LaunchNavigationAction>())
+  return Observable(actions)
+      .ofType(TypeToken<LaunchNavigationAction>())
       .asyncMap((action) {
     var url = _getUrl(action.destinationLocation);
 

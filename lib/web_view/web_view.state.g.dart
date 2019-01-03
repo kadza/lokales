@@ -10,14 +10,14 @@ WebViewState _$WebViewStateFromJson(Map<String, dynamic> json) {
   return WebViewState(
       uri: json['uri'] == null ? null : Uri.parse(json['uri'] as String),
       withZoom: json['withZoom'] as bool,
-      localStorage: json['localStorage'] as bool);
+      withLocalStorage: json['withLocalStorage'] as bool);
 }
 
 Map<String, dynamic> _$WebViewStateToJson(WebViewState instance) =>
     <String, dynamic>{
       'uri': instance.uri?.toString(),
       'withZoom': instance.withZoom,
-      'localStorage': instance.localStorage
+      'withLocalStorage': instance.withLocalStorage
     };
 
 WebViewStateContainer _$WebViewStateContainerFromJson(
