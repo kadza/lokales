@@ -36,12 +36,15 @@ class DynamicMapState extends State<DynamicMap> {
   Widget build(BuildContext context) {
     store = StoreProvider.of<AppState>(context);
     viewModel = DynamicMapViewModel(
-        store: this.store,
-        clientId: clientId,
-        initialCameraPosition: this.initialCameraPosition);
+      store: this.store,
+      clientId: clientId,
+      initialCameraPosition: this.initialCameraPosition,
+    );
 
     return GoogleMap.GoogleMap(
-        onMapCreated: _onMapCreated, options: _getMapOptions());
+      onMapCreated: _onMapCreated,
+      options: _getMapOptions(),
+    );
   }
 
   void _onMapCreated(GoogleMap.GoogleMapController controller) {
@@ -54,8 +57,9 @@ class DynamicMapState extends State<DynamicMap> {
   GoogleMap.GoogleMapOptions _getMapOptions() {
     if (!viewModel.isMapCreated())
       return GoogleMap.GoogleMapOptions(
-          cameraPosition: viewModel.getInitialCameraPosition(),
-          trackCameraPosition: true);
+        cameraPosition: viewModel.getInitialCameraPosition(),
+        trackCameraPosition: true,
+      );
 
     return GoogleMap.GoogleMapOptions(trackCameraPosition: true);
   }
