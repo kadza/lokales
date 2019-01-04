@@ -1,17 +1,38 @@
 import 'package:redux/redux.dart';
 
+import './home_location.action.dart';
 import '../../map/dynamic_map.action.dart';
 import 'home_location.state.dart';
 
 final homeLocationReducer = combineReducers<HomeLocationState>([
-  TypedReducer<HomeLocationState, SetCameraPositionAction>(_setHomeLocation)
+  TypedReducer<HomeLocationState, SetCameraPositionAction>(_setHomeLocation),
+  TypedReducer<HomeLocationState, HomeLocationSetIsPromptVisibleAction>(
+      _setIsPromptVisible),
 ]);
 
 HomeLocationState _setHomeLocation(
-    HomeLocationState state, SetCameraPositionAction setCameraPositionAction) {
-  if (setCameraPositionAction.clientId == "homeLocation")
+    HomeLocationState state, SetCameraPositionAction action) {
+  if (action.clientId == clientId)
     return HomeLocationState(
-        homeLocation: setCameraPositionAction.cameraPosition);
+      ui: HomeLocationUi(
+        isPromptVisible: state.ui.isPromptVisible,
+      ),
+      data: HomeLocationData(
+        homeLocation: action.cameraPosition,
+      ),
+    );
 
   return state;
+}
+
+HomeLocationState _setIsPromptVisible(
+    HomeLocationState state, HomeLocationSetIsPromptVisibleAction action) {
+  return HomeLocationState(
+    ui: HomeLocationUi(
+      isPromptVisible: action.isPromptVisible,
+    ),
+    data: HomeLocationData(
+      homeLocation: state.data.homeLocation,
+    ),
+  );
 }

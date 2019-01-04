@@ -20,6 +20,10 @@ class En {
     'deep-water': 'Deep water',
     'flat-water': 'Flat water',
     'waves': 'Waves',
-    'valid-wind-directions': 'Valid wind directions (e.g. North)'
+    'valid-wind-directions': 'Valid wind directions (e.g. North)',
+    'pin-home-location': 'Pin home location',
+    'pin-home-location-prompt':
+        'If you want to use: spot - home navigation, move the map and pin your home location.',
+    'close': 'Close',
   };
 }

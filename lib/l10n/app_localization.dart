@@ -96,6 +96,18 @@ class AppLocalizations {
   String get waves {
     return _localizedValues[locale.languageCode]['waves'];
   }
+
+  String get pinHomeLocation {
+    return _localizedValues[locale.languageCode]['pin-home-location'];
+  }
+
+  String get pinHomeLocationPrompt {
+    return _localizedValues[locale.languageCode]['pin-home-location-prompt'];
+  }
+
+  String get close {
+    return _localizedValues[locale.languageCode]['close'];
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

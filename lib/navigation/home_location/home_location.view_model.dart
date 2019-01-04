@@ -8,27 +8,45 @@ import '../../map/dynamic_map.model.dart';
 import '../../map/dynamic_map.selector.dart';
 import '../../map/dynamic_map.state.dart';
 
-@immutable
 class HomeLocationViewModel {
   final CameraPosition homeLocation;
   final Store<DynamicMapStateContainer> dynamicMapStateStore;
+  final Store<HomeLocationStateContainer> homeLocationStateStore;
+  bool isPromptVisible;
 
-  HomeLocationViewModel(
-      {@required this.homeLocation, @required this.dynamicMapStateStore});
+  HomeLocationViewModel({
+    @required this.homeLocation,
+    @required this.isPromptVisible,
+    @required this.homeLocationStateStore,
+    @required this.dynamicMapStateStore,
+  });
 
   factory HomeLocationViewModel.from(
-      Store<HomeLocationStateContainer> homeLocationStateStore,
-      Store<DynamicMapStateContainer> dynamicMapStateStore) {
+    Store<HomeLocationStateContainer> homeLocationStateStore,
+    Store<DynamicMapStateContainer> dynamicMapStateStore,
+  ) {
     final homeLocation = homeLocationSelector(homeLocationStateStore.state);
+    final isPromptVisible =
+        isPromptVisibleSelector(homeLocationStateStore.state);
 
     return HomeLocationViewModel(
-        homeLocation: homeLocation, dynamicMapStateStore: dynamicMapStateStore);
+      homeLocation: homeLocation,
+      isPromptVisible: isPromptVisible,
+      dynamicMapStateStore: dynamicMapStateStore,
+      homeLocationStateStore: homeLocationStateStore,
+    );
   }
 
   void setHomeLocation() {
     var cameraPosition =
-        cameraPositionMapSelector(dynamicMapStateStore.state)["homeLocation"];
+        cameraPositionMapSelector(dynamicMapStateStore.state)[clientId];
     dynamicMapStateStore
         .dispatch(SetHomeLocationAction(homeLocation: cameraPosition));
+  }
+
+  void hidePrompt() {
+    homeLocationStateStore.dispatch(HomeLocationSetIsPromptVisibleAction(
+      isPromptVisible: false,
+    ));
   }
 }

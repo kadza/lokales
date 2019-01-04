@@ -158,8 +158,8 @@ class AppState
 
     return AppState(
       homeLocationState: HomeLocationState(
-        homeLocation: homeLocation,
-      ),
+          ui: HomeLocationUi(isPromptVisible: true),
+          data: HomeLocationData(homeLocation: homeLocation)),
       dynamicMapState: DynamicMapState(entities: Map()),
       spotState: SpotState(
         settings: spotSettings,

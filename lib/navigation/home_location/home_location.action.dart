@@ -17,3 +17,20 @@ class SetHomeLocationAction {
 
   Map<String, dynamic> toJson() => _$SetHomeLocationActionToJson(this);
 }
+
+@immutable
+@JsonSerializable()
+class HomeLocationSetIsPromptVisibleAction {
+  final bool isPromptVisible;
+
+  HomeLocationSetIsPromptVisibleAction({
+    @required this.isPromptVisible,
+  });
+
+  factory HomeLocationSetIsPromptVisibleAction.fromJson(
+          Map<String, dynamic> json) =>
+      _$HomeLocationSetIsPromptVisibleActionFromJson(json);
+
+  Map<String, dynamic> toJson() =>
+      _$HomeLocationSetIsPromptVisibleActionToJson(this);
+}

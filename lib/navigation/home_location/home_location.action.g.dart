@@ -18,3 +18,13 @@ SetHomeLocationAction _$SetHomeLocationActionFromJson(
 Map<String, dynamic> _$SetHomeLocationActionToJson(
         SetHomeLocationAction instance) =>
     <String, dynamic>{'homeLocation': instance.homeLocation};
+
+HomeLocationSetIsPromptVisibleAction
+    _$HomeLocationSetIsPromptVisibleActionFromJson(Map<String, dynamic> json) {
+  return HomeLocationSetIsPromptVisibleAction(
+      isPromptVisible: json['isPromptVisible'] as bool);
+}
+
+Map<String, dynamic> _$HomeLocationSetIsPromptVisibleActionToJson(
+        HomeLocationSetIsPromptVisibleAction instance) =>
+    <String, dynamic>{'isPromptVisible': instance.isPromptVisible};
