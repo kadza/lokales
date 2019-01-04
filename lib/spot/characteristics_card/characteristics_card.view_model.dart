@@ -7,6 +7,8 @@ import '../spot.model.dart';
 import '../spot.selector.dart';
 import '../spot.state.dart';
 
+//TODO: move legend dialog visibility to state
+
 @immutable
 class CharacteristicsCardViewModel {
   final List<SpotCharacteristics> characteristicList;

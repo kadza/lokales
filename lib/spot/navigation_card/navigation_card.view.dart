@@ -23,11 +23,11 @@ class NavigationCardView extends StatelessWidget {
           children: <Widget>[
             CircularButtonView(
               icon: Icon(Lokales.logo),
-              onTap: () => goToSpot,
+              onTap: goToSpot,
             ),
             CircularButtonView(
               icon: Icon(Icons.home),
-              onTap: () => goHome,
+              onTap: goHome,
             ),
           ],
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
