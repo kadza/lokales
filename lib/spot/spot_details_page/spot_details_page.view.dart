@@ -11,6 +11,7 @@ import '../weather_card/weather_card.container.dart';
 class SpotDetailsPageView extends StatelessWidget {
   final String title;
   final String titleImagePath;
+  final bool isDescriptionVsible;
   final WillPopCallback onWillPop;
 
   SpotDetailsPageView({
@@ -18,10 +19,21 @@ class SpotDetailsPageView extends StatelessWidget {
     @required this.title,
     @required this.titleImagePath,
     @required this.onWillPop,
+    @required this.isDescriptionVsible,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var cards = <Widget>[
+      IcmCard(),
+      WeatherCard(),
+      NavigationCard(),
+      LocationCard(),
+      CharacteristicsCard(),
+    ];
+
+    if (isDescriptionVsible) cards.add(DescriptionCard());
+
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
@@ -51,7 +63,6 @@ class SpotDetailsPageView extends StatelessWidget {
                   NavigationCard(),
                   LocationCard(),
                   CharacteristicsCard(),
-                  DescriptionCard(),
                 ],
               ),
             )

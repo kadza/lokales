@@ -19,6 +19,7 @@ class SpotDetailsPage extends StatelessWidget {
         title: viewModel.title,
         titleImagePath: viewModel.titleImagePath,
         onWillPop: viewModel.onWillPop,
+        isDescriptionVsible: viewModel.isDescriptionVisible,
       );
     });
   }

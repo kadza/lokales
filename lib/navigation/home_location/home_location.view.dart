@@ -7,8 +7,6 @@ import '../../l10n/app_localization.dart';
 import '../../map/dynamic_map.view.dart';
 import 'home_location.view_model.dart';
 
-//TODO: add prompt to indicate why home location is necessary
-
 class HomeLocationView extends StatelessWidget {
   final HomeLocationViewModel viewModel;
 

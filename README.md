@@ -28,24 +28,27 @@ I decided to use Redux https://github.com/johnpryan/redux.dart instead. Mainly d
 
 I was surprised with the low popularity of the project. From github: Dart 171 stars, .Net 564 stars(not maintained anymore), JS 44,268 stars. 
 
-Pros:
+Good things:
 * it works :)
 * logging, thunk, epics
 * selector memoization (to be verified)
 * state persistance (to be verified)
 
-Cons
+Thing that don't work (as I would expect)
 * FlutterRedux https://pub.dartlang.org/packages/flutter_redux 
   * Wiring state change to a widget, takes so much fuss ... If you compare it to e.g. angular + ngrx it's much simpler there. 
   * The other thing is that using the store provider I was able to get the store exactly of type Store<AppState> only. If the AppState was of type ISubState, I was not able to get the Store<ISubState>. The store is being passed using InheritedWidget https://docs.flutter.io/flutter/widgets/InheritedWidget-class.html and it's prbably its constraint.
-TODO: analyze the topic deeper
-TOOO: Analyze https://hillelcoren.com/2018/06/01/building-a-large-flutter-app-with-redux/
+  TODO: analyze the topic deeper
+* Navigation. Navigation is done via Flutter's mechanism. This happens outside of redux. I implemented e.g. onWllPopScope workaround, here and there , but this solves one specific issue and it's pretty ugly. TODO: create redux - navigation adapter
+* Dialogs. The problem with a dialog originates from a fact that we want to display dialogs always on top, no matter how deep in the widget tree we are. Flutter expose show dialog to do the job. I would like to control the visibility of each dialog by a state prop and I wasn't able to do it. One of the trials, with overlay manager is on the deep-dialog branch.
+
+* TOOO: Analyze https://hillelcoren.com/2018/06/01/building-a-large-flutter-app-with-redux/
 
 
 ### Tools
 * Redux Dev tools for dart https://github.com/brianegan/redux_dev_tools. A small project maintained by one guy.
 * Flutter dev tools https://github.com/brianegan/flutter_redux_dev_tools. A small project maintained by one guy. A simple widget with limited capabilities. Time travel, state snapshot review (based on toString), reset, recomputation. Its functaionlity is limited and it can be more of a toy then a tool for dev
-* Redux remote dev tools https://pub.dartlang.org/packages/redux_remote_devtools It has the most important feature that enables to track actions and state changes. IT's possible to do time travel. One thing needs to be mentioned it requires bot actions and state to be JSON serializable. 
+* Redux remote dev tools https://pub.dartlang.org/packages/redux_remote_devtools It has the most important feature that enables to track actions and state changes. IT's possible to do time travel. One thing needs to be mentioned it requires bot actions and state to be JSON serializable. The author
 
 ## Project structure
 * Folder by feature
