@@ -13,6 +13,8 @@ class WeatherCard extends StatelessWidget {
         converter: (Store<AppState> store) {
       return WeatherCardViewModel.fromStore(store, context);
     }, builder: (context, viewModel) {
+      if (viewModel == null) return Container();
+
       return WeatherCardView(
         onWindguruPressed: viewModel.onWindguruPressed,
         onWindyPressed: viewModel.onWindyPressed,

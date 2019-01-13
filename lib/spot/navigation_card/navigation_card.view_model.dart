@@ -22,6 +22,8 @@ class NavigationCardViewModel {
     final homeLocation = homeLocationSelector(homeLocationStateStore.state);
     final spot = selectedSpotSelector(spotStateStore.state);
 
+    if (homeLocation == null || spot == null) return null;
+
     return NavigationCardViewModel(
       goHome: () => spotStateStore.dispatch(
             LaunchNavigationAction(destinationLocation: homeLocation.target),

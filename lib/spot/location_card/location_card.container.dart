@@ -13,7 +13,11 @@ class LocationCard extends StatelessWidget {
         converter: (Store<AppState> store) {
       return LocationCardViewModel.fromStore(store);
     }, builder: (context, viewModel) {
-      return LocationCardView(viewModel: viewModel);
+      if (viewModel == null) return Container();
+
+      return LocationCardView(
+        location: viewModel.location,
+      );
     });
   }
 }

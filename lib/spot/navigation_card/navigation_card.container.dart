@@ -13,6 +13,8 @@ class NavigationCard extends StatelessWidget {
         converter: (Store<AppState> store) {
       return NavigationCardViewModel.fromStore(store, store);
     }, builder: (context, viewModel) {
+      if (viewModel == null) return Container();
+
       return NavigationCardView(
         goToSpot: viewModel.goToSpot,
         goHome: viewModel.goHome,

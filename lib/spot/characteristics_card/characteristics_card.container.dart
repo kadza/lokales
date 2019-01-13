@@ -15,6 +15,8 @@ class CharacteristicsCard extends StatelessWidget {
         converter: (Store<AppState> store) {
       return CharacteristicsCardViewModel.fromStore(store, context);
     }, builder: (context, viewModel) {
+      if (viewModel == null) return Container();
+
       return CharacteristicsCardView(
         characteristicList: viewModel.characteristicList,
         onHelpPressed: viewModel.onHelpPressed,

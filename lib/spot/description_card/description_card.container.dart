@@ -13,6 +13,8 @@ class DescriptionCard extends StatelessWidget {
         converter: (Store<AppState> store) {
       return DescriptionCardViewModel.fromStore(store);
     }, builder: (context, viewModel) {
+      if (viewModel == null) return Container();
+
       return DescriptionCardView(
         description: viewModel.description,
       );

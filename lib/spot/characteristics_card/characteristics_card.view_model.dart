@@ -25,6 +25,8 @@ class CharacteristicsCardViewModel {
   ) {
     final selectedSpot = selectedSpotSelector(store.state);
 
+    if (selectedSpot == null) return null;
+
     return CharacteristicsCardViewModel(
       characteristicList: selectedSpot.characteristics,
       context: context,

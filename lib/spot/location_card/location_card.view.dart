@@ -1,30 +1,29 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import './location_card.view_model.dart';
 import '../../l10n/app_localization.dart';
+import '../../map/dynamic_map.model.dart';
 import '../../static_maps_provider.dart';
 import '../details_card.dart';
 
 class LocationCardView extends StatelessWidget {
-  final LocationCardViewModel viewModel;
+  final CameraPosition location;
 
   LocationCardView({
     Key key,
-    @required this.viewModel,
+    @required this.location,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var locations = List();
-    final location = viewModel.location.target;
     locations.add({
-      "latitude": location.latitude,
-      "longitude": location.longitude,
+      "latitude": location.target.latitude,
+      "longitude": location.target.longitude,
     });
     locations.add({
-      "latitude": location.latitude,
-      "longitude": location.longitude,
+      "latitude": location.target.latitude,
+      "longitude": location.target.longitude,
     });
     var apiKey = "AIzaSyAZO7rzoyHXvWtpl81vGwDtU1udaykZbaA";
     return DetailsCard(
@@ -38,7 +37,7 @@ class LocationCardView extends StatelessWidget {
             locations: locations,
             zoom: 12,
           ),
-          Text("${location.latitude}, ${location.longitude}"),
+          Text("${location.target.latitude}, ${location.target.longitude}"),
         ],
       ),
     );

@@ -15,7 +15,10 @@ class LocationCardViewModel {
     Store<SpotStateContainer> spotStateStore,
   ) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);
+    if (selectedSpot == null) return null;
 
-    return LocationCardViewModel(location: selectedSpot.location);
+    return LocationCardViewModel(
+      location: selectedSpot.location,
+    );
   }
 }

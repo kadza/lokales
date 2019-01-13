@@ -13,9 +13,12 @@ class SpotDetailsPage extends StatelessWidget {
         converter: (Store<AppState> store) {
       return SpotDetailsPageViewModel.fromStore(store);
     }, builder: (context, viewModel) {
+      if (viewModel == null) return Container();
+
       return SpotDetailsPageView(
         title: viewModel.title,
         titleImagePath: viewModel.titleImagePath,
+        onWillPop: viewModel.onWillPop,
       );
     });
   }

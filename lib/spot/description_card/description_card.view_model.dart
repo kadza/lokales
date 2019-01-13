@@ -15,6 +15,8 @@ class DescriptionCardViewModel {
   ) {
     final selectedSpot = selectedSpotSelector(spotStateStore.state);
 
+    if (selectedSpot == null) return null;
+
     return DescriptionCardViewModel(description: selectedSpot.description);
   }
 }

@@ -16,6 +16,8 @@ class IcmCard extends StatelessWidget {
         context,
       );
     }, builder: (context, viewModel) {
+      if (viewModel == null) return Container();
+
       return IcmCardView(
         media: viewModel.media,
         onPressed: viewModel.onPressed,

@@ -23,13 +23,15 @@ class IcmCardViewModel {
   });
 
   factory IcmCardViewModel.fromStore(
-    Store<SpotStateContainer> spotStateStore,
+    Store<SpotStateContainer> store,
     BuildContext context,
   ) {
-    final selectedSpot = selectedSpotSelector(spotStateStore.state);
+    final selectedSpot = selectedSpotSelector(store.state);
+
+    if (selectedSpot == null) return null;
 
     return IcmCardViewModel(
-      store: spotStateStore,
+      store: store,
       context: context,
       media: Media(
         type: MediaType.Image,

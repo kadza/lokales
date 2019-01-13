@@ -27,6 +27,8 @@ class WeatherCardViewModel {
   ) {
     final selectedSpot = selectedSpotSelector(store.state);
 
+    if (selectedSpot == null) return null;
+
     return WeatherCardViewModel(
       store,
       context,
