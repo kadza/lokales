@@ -27,5 +27,7 @@ class Pl {
     'pin-home-location-prompt':
         'Jeśli chcesz skorzystać nawigacji spot - dom, poruszjąc mapą, ustaw pinezkę w pozycji docelowej.',
     'close': 'Zamknij',
+    'spot-settings': 'Ustawienia spotu',
+    'weather-forecast': 'Prognoza pogody',
   };
 }

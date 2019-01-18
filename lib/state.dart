@@ -141,13 +141,32 @@ class AppState
       ),
     });
 
-    final spotSettings = SpotSettings(
-      isDescriptionVisible: true,
-      isLocationVisible: true,
-      isWindDirectionsVisible: true,
-      isWindguruVisible: true,
-      isIcmVisible: true,
-    );
+    final spotSettings = <SpotSetting>[
+      SpotSetting(
+        id: SpotSettingId.icm,
+        isVisible: true,
+      ),
+      SpotSetting(
+        id: SpotSettingId.weather,
+        isVisible: true,
+      ),
+      SpotSetting(
+        id: SpotSettingId.navigation,
+        isVisible: true,
+      ),
+      SpotSetting(
+        id: SpotSettingId.characteristics,
+        isVisible: true,
+      ),
+      SpotSetting(
+        id: SpotSettingId.location,
+        isVisible: true,
+      ),
+      SpotSetting(
+        id: SpotSettingId.description,
+        isVisible: true,
+      ),
+    ];
 
     final CameraPosition homeLocation = CameraPosition(
         target: LatLng(

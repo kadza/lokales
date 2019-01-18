@@ -10,7 +10,7 @@ part 'spot.state.g.dart';
 @JsonSerializable()
 class SpotState {
   final Map<String, Spot> entities;
-  final SpotSettings settings;
+  final List<SpotSetting> settings;
   final String selectedSpotId;
 
   SpotState({

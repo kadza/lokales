@@ -11,12 +11,10 @@ void main() => runApp(App());
 
 class App extends StatelessWidget {
   final Store<AppState> store;
-  final WidgetBuilder devDrawerBuilder;
 
   App({
     Key key,
     this.store,
-    this.devDrawerBuilder,
   }) : super(key: key);
 
   Widget build(BuildContext context) {

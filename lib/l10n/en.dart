@@ -25,5 +25,7 @@ class En {
     'pin-home-location-prompt':
         'If you want to use: spot - home navigation, move the map and pin your home location.',
     'close': 'Close',
+    'spot-settings': 'Spot settings',
+    'weather-forecast': 'Weather forecast',
   };
 }

@@ -1,11 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_localization.dart';
 import '../../presentation/lokales_icons.dart';
 import '../../ui/circular_button.view.dart';
 import '../details_card.dart';
-
-// TODO: Weather forcast translation
 
 class WeatherCardView extends StatelessWidget {
   final VoidCallback onWindguruPressed;
@@ -20,7 +19,7 @@ class WeatherCardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DetailsCard(
-      title: "Weather forecast",
+      title: AppLocalizations.of(context).weatherForecast,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[

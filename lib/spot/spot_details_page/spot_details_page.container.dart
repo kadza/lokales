@@ -11,7 +11,7 @@ class SpotDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<AppState, SpotDetailsPageViewModel>(
         converter: (Store<AppState> store) {
-      return SpotDetailsPageViewModel.fromStore(store);
+      return SpotDetailsPageViewModel.fromStore(store, context);
     }, builder: (context, viewModel) {
       if (viewModel == null) return Container();
 
@@ -19,7 +19,7 @@ class SpotDetailsPage extends StatelessWidget {
         title: viewModel.title,
         titleImagePath: viewModel.titleImagePath,
         onWillPop: viewModel.onWillPop,
-        isDescriptionVsible: viewModel.isDescriptionVisible,
+        settings: viewModel.settings,
       );
     });
   }

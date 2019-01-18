@@ -11,9 +11,11 @@ SpotState _$SpotStateFromJson(Map<String, dynamic> json) {
       entities: (json['entities'] as Map<String, dynamic>)?.map((k, e) =>
           MapEntry(
               k, e == null ? null : Spot.fromJson(e as Map<String, dynamic>))),
-      settings: json['settings'] == null
-          ? null
-          : SpotSettings.fromJson(json['settings'] as Map<String, dynamic>),
+      settings: (json['settings'] as List)
+          ?.map((e) => e == null
+              ? null
+              : SpotSetting.fromJson(e as Map<String, dynamic>))
+          ?.toList(),
       selectedSpotId: json['selectedSpotId'] as String);
 }
 

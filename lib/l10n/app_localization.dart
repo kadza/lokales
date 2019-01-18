@@ -108,6 +108,14 @@ class AppLocalizations {
   String get close {
     return _localizedValues[locale.languageCode]['close'];
   }
+
+  String get spotSettings {
+    return _localizedValues[locale.languageCode]['spot-settings'];
+  }
+
+  String get weatherForecast {
+    return _localizedValues[locale.languageCode]['weather-forecast'];
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
