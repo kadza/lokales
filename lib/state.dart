@@ -169,11 +169,12 @@ class AppState
     ];
 
     final CameraPosition homeLocation = CameraPosition(
-        target: LatLng(
-          longitude: 19.0,
-          latitude: 51.0,
-        ),
-        zoom: 10);
+      target: LatLng(
+        longitude: 19.0,
+        latitude: 51.0,
+      ),
+      zoom: 10,
+    );
 
     return AppState(
       homeLocationState: HomeLocationState(

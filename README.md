@@ -32,7 +32,7 @@ Good things:
 * it works :)
 * logging, thunk, epics
 * selector memoization (to be verified)
-* state persistance (to be verified)
+* state persistance
 
 Thing that don't work (as I would expect)
 * FlutterRedux https://pub.dartlang.org/packages/flutter_redux 
@@ -91,14 +91,11 @@ Here there is a nice summary of the options: https://medium.com/flutter-io/some-
 
 ## TODO
 - [ ] Add keys to all the widgets
-- [ ] Unit tets
-- [ ] Replace static map card with dynamic_map
+- [ ] Unit tests
 - [ ] Do something about description id
 - [ ] Redux based navigation
-- [ ] When keys should be used 
 - [ ] Redux code genearators
 - [ ] use reselect https://pub.dartlang.org/packages/reselect
-- [ ] use persist https://github.com/Cretezy/redux_persist
 - [ ] Analyze the package: https://github.com/google/built_value.dart
 - [ ] Find a way to keep the genrated code out of the main src
 - [ ] Android adaptive icons

@@ -1,6 +1,11 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:redux_dev_tools/redux_dev_tools.dart';
 import 'package:redux_epics/redux_epics.dart';
+import 'package:redux_persist/redux_persist.dart';
+import 'package:redux_persist_flutter/redux_persist_flutter.dart';
 import 'package:redux_remote_devtools/redux_remote_devtools.dart';
 
 import './app.dart';
@@ -12,6 +17,15 @@ import 'navigation/navigation_launcher/navigation_launcher.epics.dart';
 void main() async {
   final epicMiddleware = EpicMiddleware(launchNavigationEpic);
 
+  final persistor = Persistor<AppState>(
+    storage: FlutterStorage(
+      location: FlutterSaveLocation.sharedPreferences,
+    ),
+    serializer: StatePersistorSerializer(),
+  );
+
+  final AppState initialState = await persistor.load();
+
   // final remoteDevtoolsMiddleware = RemoteDevToolsMiddleware(
   // '192.168.1.176:8000',
   // actionDecoder: Decoder(),
@@ -20,10 +34,11 @@ void main() async {
 
   final store = DevToolsStore<AppState>(
     appStateReducer,
-    initialState: AppState.loading(),
+    initialState: initialState ?? AppState.loading(),
     middleware: [
       epicMiddleware,
       // remoteDevtoolsMiddleware,
+      persistor.createMiddleware(),
     ],
   );
 
@@ -40,5 +55,25 @@ class Decoder implements ActionDecoder {
     final map = payload as Map<String, dynamic>;
     if (map['type'] == 'SelectSpotAction')
       return SelectSpotAction.fromJson(map);
+  }
+}
+
+class StatePersistorSerializer implements StateSerializer<AppState> {
+  @override
+  AppState decode(Uint8List data) {
+    if (data == null) return null;
+
+    final Map<String, dynamic> jsonMap = json.decode(uint8ListToString(data));
+
+    return AppState.fromJson(jsonMap);
+  }
+
+  @override
+  Uint8List encode(AppState state) {
+    if (state == null) {
+      return null;
+    }
+
+    return stringToUint8List(json.encode(state.toJson()));
   }
 }
