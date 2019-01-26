@@ -1,4 +1,4 @@
-package com.example.lokales;
+package com.kadza.lokales;
 
 import android.os.Bundle;
 

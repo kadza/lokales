@@ -1,0 +1,2 @@
+json_key_file("/Users/lkujawia/dev/api-5811692461378326535-111794-90956a6ca91b.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("com.kadza.lokales") # e.g. com.krausefx.app
