@@ -89,7 +89,24 @@ Here there is a nice summary of the options: https://medium.com/flutter-io/some-
 * When to use keys https://www.youtube.com/watch?v=kn0EOS-ZiIc
 * Should I add a Key property to my custom widgets https://github.com/flutter/flutter/issues/3868
 
+## CI
+The aim is to setup using Travis CI:
+- [ ] Google Play deploy
+- [ ] beta distribution with AppCenter
+- [ ] automatic build on master commit
+- [ ] unit test runner
+- [ ] test coverage
+
+Google Play deploy is well documented here: https://flutter.io/docs/deployment/fastlane-cd
+I did the first step. In order to make the Google Play deploy work, android.properties file needs to be filled.
+
+I configured https://appcenter.ms. In order to make it work android/fastlane/Fastfile.private needs to be filled.
+
 ## TODO
+- [ ] https://pub.dartlang.org/packages/flutter_crashlytics
+- [ ] Which plugin adds phone state permission requirement?
+- [ ] Icm image loader
+- [ ] Web view loader
 - [ ] Add keys to all the widgets
 - [ ] Unit tests
 - [ ] Do something about description id

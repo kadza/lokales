@@ -9,3 +9,10 @@ build/
 .flutter-plugins
 
 key.properties
+Fastfile.private
+.idea/
+android/app/debug/
+android/app/dynamicProfile/
+android/app/dynamicRelease/
+android/app/profile/
+android/app/release/

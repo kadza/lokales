@@ -1,0 +1,8 @@
+lane :lokales_appcenter_upload do
+  appcenter_upload(
+    api_token: '',
+    owner_name: '',
+    app_name: '',
+    apk: '',
+  )
+end
