@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/kadza/lokales.svg?branch=master)](https://travis-ci.com/kadza/lokales)
+
 # Lokales
 
 I'm creating this app because:
