@@ -1,0 +1,15 @@
+jobs:
+  include:
+
+    - stage: Unit Testing
+      language: generic
+      os: linux
+      env: running unit and widget tests with code coverage
+      before_script:
+        - sudo apt-get install -y --no-install-recommends lib32stdc++6 libstdc++6 > /dev/null
+        - git clone https://github.com/flutter/flutter.git -b beta
+        - export PATH="$PATH":"$HOME/.pub-cache/bin"
+        - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
+        - flutter precache
+        - flutter doctor -v
+      script: flutter test
