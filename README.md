@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/kadza/lokales.svg?branch=master)](https://travis-ci.com/kadza/lokales)
+[![codecov.io Code Coverage](https://codecov.io/gh/kadza/lokales/branch/master/graphs/badge.svg)](https://codecov.io/gh/kadza/lokales)
 
 # Lokales
 
@@ -103,6 +104,9 @@ Google Play deploy is well documented here: https://flutter.io/docs/deployment/f
 I did the first step. In order to make the Google Play deploy work, android.properties file needs to be filled.
 
 I configured https://appcenter.ms. In order to make it work android/fastlane/Fastfile.private needs to be filled.
+
+### Code coverage
+https://github.com/flutter/flutter/issues/25077
 
 ## TODO
 - [ ] https://pub.dartlang.org/packages/flutter_crashlytics

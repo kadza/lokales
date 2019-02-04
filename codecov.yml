@@ -1,0 +1,6 @@
+ignore:
+  - '**/*.action.dart'
+  - '**/*.g.dart'
+  - '**/*.model.dart'
+  - '**/*.state.dart'
+  - 'lib/l10n'

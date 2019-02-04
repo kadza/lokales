@@ -11,5 +11,5 @@ jobs:
         - export PATH="$PATH":"$HOME/.pub-cache/bin"
         - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
         - flutter precache
-        - flutter doctor -v
-      script: flutter test
+      script: flutter test --coverage
+      after_success: bash <(curl -s https://codecov.io/bash) -f coverage/lcov.info
