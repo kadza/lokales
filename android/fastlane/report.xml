@@ -5,17 +5,22 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.004179">
+      <testcase classname="fastlane.lanes" name="0: update_fastlane" time="9.104346">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to lokales_appcenter_upload lane" time="0.004665">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.006588">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: appcenter_upload" time="26.849753">
+      <testcase classname="fastlane.lanes" name="2: cat ../../ci/release_notes.sh" time="0.036995">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: appcenter_upload" time="8.315328">
         
       </testcase>
     

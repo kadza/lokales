@@ -1,0 +1,14 @@
+container:
+  image: cirrusci/flutter
+
+test_task:
+  test_script: flutter test --coverage
+  publish_coverage_script: bash <(curl -s https://codecov.io/bash) -f coverage/lcov.info
+
+appcenter_android_task:  
+  depends_on:
+    - test
+  environment:
+    APPCENTER_API_TOKEN: ENCRYPTED[a0fbbee067ce40269af8b5b3854a7dd8890dcfea07d0f97fe5f0eb507c4cd19c5556a1663bc21aa611b9cb7e10edcebc]
+  appcenter_upload_script:
+    - ci/build.sh 

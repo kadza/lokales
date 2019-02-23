@@ -1,11 +1,14 @@
-import 'Fastfile.private'
-
-#update_fastlane
+update_fastlane
 
 default_platform(:android)
 
-lane :appcenter do
-  lokales_appcenter_upload()
+lane :android_appcenter_upload do
+ appcenter_upload(
+    owner_name: 'lukasz.kujawiak-1',
+    app_name: 'Lokales',
+    apk: '../build/app/outputs/apk/app.apk',
+    release_notes: sh('../../ci/release_notes.sh'),
+  )
 end
 
 lane :alpha do

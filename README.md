@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/kadza/lokales.svg?branch=master)](https://travis-ci.com/kadza/lokales)
+[![Build Status](https://api.cirrus-ci.com/kadza/lokales.svg?branch=master)](https://api.cirrus-ci.com/kadza/lokales)
 [![codecov.io Code Coverage](https://codecov.io/gh/kadza/lokales/branch/master/graphs/badge.svg)](https://codecov.io/gh/kadza/lokales)
 
 # Lokales

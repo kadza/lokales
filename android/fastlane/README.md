@@ -15,14 +15,9 @@ Install _fastlane_ using
 or alternatively using `brew cask install fastlane`
 
 # Available Actions
-### lokales_appcenter_upload
+### android_appcenter_upload
 ```
-fastlane lokales_appcenter_upload
-```
-
-### appcenter
-```
-fastlane appcenter
+fastlane android_appcenter_upload
 ```
 
 ### alpha
