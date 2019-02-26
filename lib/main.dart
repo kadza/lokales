@@ -63,7 +63,8 @@ class StatePersistorSerializer implements StateSerializer<AppState> {
   AppState decode(Uint8List data) {
     if (data == null) return null;
 
-    final Map<String, dynamic> jsonMap = json.decode(uint8ListToString(data));
+    final Map<String, dynamic> jsonMap =
+        jsonDecode(uint8ListToString(data)) as Map<String, dynamic>;
 
     return AppState.fromJson(jsonMap);
   }

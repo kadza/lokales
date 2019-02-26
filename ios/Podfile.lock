@@ -10,6 +10,8 @@ PODS:
   - GoogleMaps/Base (2.7.0)
   - GoogleMaps/Maps (2.7.0):
     - GoogleMaps/Base
+  - path_provider (0.0.1):
+    - Flutter
   - shared_preferences (0.0.1):
     - Flutter
   - url_launcher (0.0.1):
@@ -19,6 +21,7 @@ DEPENDENCIES:
   - Flutter (from `Pods/.symlinks/flutter/ios`)
   - flutter_webview_plugin (from `Pods/.symlinks/plugins/flutter_webview_plugin/ios`)
   - google_maps_flutter (from `Pods/.symlinks/plugins/google_maps_flutter/ios`)
+  - path_provider (from `Pods/.symlinks/plugins/path_provider/ios`)
   - shared_preferences (from `Pods/.symlinks/plugins/shared_preferences/ios`)
   - url_launcher (from `Pods/.symlinks/plugins/url_launcher/ios`)
 
@@ -33,6 +36,8 @@ EXTERNAL SOURCES:
     :path: Pods/.symlinks/plugins/flutter_webview_plugin/ios
   google_maps_flutter:
     :path: Pods/.symlinks/plugins/google_maps_flutter/ios
+  path_provider:
+    :path: Pods/.symlinks/plugins/path_provider/ios
   shared_preferences:
     :path: Pods/.symlinks/plugins/shared_preferences/ios
   url_launcher:
@@ -43,6 +48,7 @@ SPEC CHECKSUMS:
   flutter_webview_plugin: 0b491d31c34ab5c86a71c9f1a57ac000dd1b75e9
   google_maps_flutter: 6449d5918d3f1a69a37dc9c557bbad7bb9bcf0e9
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  path_provider: 09407919825bfe3c2deae39453b7a5b44f467873
   shared_preferences: 5a1d487c427ee18fcd3ea1f2a131569481834b53
   url_launcher: 92b89c1029a0373879933c21642958c874539095
 
