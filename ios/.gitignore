@@ -42,3 +42,6 @@ Icon?
 /ServiceDefinitions.json
 
 Pods/
+
+.symlinks/
+Runner.xcworkspace/xcshareddata/
