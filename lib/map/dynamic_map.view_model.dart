@@ -12,50 +12,55 @@ typedef CameraPosition CameraPositionSelector(DynamicMapState state);
 class DynamicMapViewModel {
   final String clientId;
   final Store<DynamicMapStateContainer> store;
-  final CameraPosition initialCameraPosition;
-  GoogleMap.GoogleMapController mapController;
+  CameraPosition initialCameraPosition;
+  GoogleMap.GoogleMap map;
 
-  DynamicMapViewModel(
-      {@required this.store,
-      @required this.clientId,
-      @required this.initialCameraPosition});
+  DynamicMapViewModel({
+    @required this.store,
+    @required this.clientId,
+  });
 
   GoogleMap.CameraPosition getInitialCameraPosition() {
-    store.dispatch(SetCameraPositionAction(
-        clientId: this.clientId, cameraPosition: this.initialCameraPosition));
-
-    return this.initialCameraPosition.toCameraPosition();
+    return dynamicMapStateEntitySelector(store.state, clientId)
+        .cameraPosition
+        .toCameraPosition();
   }
 
-  bool isMapCreated() {
-    return isMapCreatedSelector(store.state, clientId);
+  Set<GoogleMap.Marker> getInitialMarkers() {
+    return dynamicMapStateEntitySelector(store.state, clientId)
+        .markers
+        .map((marker) => marker.toMarker())
+        .toSet();
+  }
+
+  bool areGesturesEnabled() {
+    return dynamicMapStateEntitySelector(store.state, clientId)
+        .areGesturesEnabled;
   }
 
   void intialize(GoogleMap.GoogleMapController mapController) {
-    this.mapController = mapController;
-
     store.onChange
-        .where((state) =>
-            isMapCreatedSelector(state, clientId) &&
-            !cameraPositionMapSelector(state)[clientId]
-                .equals(this.mapController.cameraPosition))
+        .where((state) => isMapCreatedSelector(state, clientId))
         .listen((state) {
-      mapController.animateCamera(GoogleMap.CameraUpdate.newCameraPosition(
-          cameraPositionMapSelector(state)[clientId].toCameraPosition()));
-    });
-
-    this.mapController.addListener(() {
-      if (isMapCreatedSelector(store.state, clientId) &&
-          !cameraPositionMapSelector(store.state)[clientId]
-              .equals(this.mapController.cameraPosition))
-        store.dispatch(SetCameraPositionAction(
-            cameraPosition: CameraPosition.fromCameraPosition(
-                this.mapController.cameraPosition),
-            clientId: this.clientId));
+      if (!dynamicMapStateEntitySelector(state, clientId)
+          .isCameraPositionFromMap)
+        mapController.animateCamera(
+          GoogleMap.CameraUpdate.newCameraPosition(
+              dynamicMapStateEntitySelector(state, clientId)
+                  .cameraPosition
+                  .toCameraPosition()),
+        );
     });
   }
 
-  void dispose() {
-    store.dispatch(DisposeMapAction(clientId: this.clientId));
+  void onCameraMove(GoogleMap.CameraPosition cameraPosition) {
+    if (isMapCreatedSelector(store.state, clientId))
+      store.dispatch(
+        SetCameraPositionAction(
+          cameraPosition: CameraPosition.fromCameraPosition(cameraPosition),
+          clientId: this.clientId,
+          isCameraPositionFromMap: true,
+        ),
+      );
   }
 }

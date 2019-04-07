@@ -42,7 +42,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            resValue "string", "google_maps_api_key", System.getenv('GOOGLE_MAPS_API_KEY')
+        }
         release {
+            resValue "string", "google_maps_api_key", System.env.GOOGLE_MAPS_API_KEY
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug

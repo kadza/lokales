@@ -45,7 +45,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  flutter_webview_plugin: 0b491d31c34ab5c86a71c9f1a57ac000dd1b75e9
+  flutter_webview_plugin: 116575b48572029304775b768e9f15ebfc316274
   google_maps_flutter: 6449d5918d3f1a69a37dc9c557bbad7bb9bcf0e9
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   path_provider: 09407919825bfe3c2deae39453b7a5b44f467873

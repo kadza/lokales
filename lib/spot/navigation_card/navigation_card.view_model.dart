@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:redux/redux.dart';
 
+import '../../map/dynamic_map.state.dart';
 import '../../navigation/home_location/home_location.selector.dart';
 import '../../navigation/home_location/home_location.state.dart';
 import '../../navigation/navigation_launcher/navigation_launcher.action.dart';
@@ -18,8 +19,9 @@ class NavigationCardViewModel {
 
   factory NavigationCardViewModel.fromStore(
       Store<HomeLocationStateContainer> homeLocationStateStore,
-      Store<SpotStateContainer> spotStateStore) {
-    final homeLocation = homeLocationSelector(homeLocationStateStore.state);
+      Store<SpotStateContainer> spotStateStore,
+      Store<DynamicMapStateContainer> mapStateStore) {
+    final homeLocation = homeLocationSelector(mapStateStore.state);
     final spot = selectedSpotSelector(spotStateStore.state);
 
     if (homeLocation == null || spot == null) return null;

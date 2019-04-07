@@ -43,7 +43,7 @@ class AppState
   Map<String, dynamic> toJson() => _$AppStateToJson(this);
 
   factory AppState.loading() {
-    final spotMapZoomLevel = 5.0;
+    final spotMapZoomLevel = 15.0;
 
     final spotMap = Map<String, Spot>.from({
       '1': Spot(
@@ -176,11 +176,40 @@ class AppState
       zoom: 10,
     );
 
+    Map<String, DynamicMapStateEntity> dynamicMapEntities = Map.fromEntries(
+      spotMap.values.map(
+        (spot) => MapEntry(
+              spot.id,
+              DynamicMapStateEntity(
+                cameraPosition: spot.location,
+                isCameraPositionFromMap: false,
+                areGesturesEnabled: false,
+                markers: Set<Marker>.from(
+                  [
+                    Marker(
+                      markerId: spot.id,
+                      position: spot.location.target,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+      ),
+    );
+    dynamicMapEntities[clientId] = DynamicMapStateEntity(
+      cameraPosition: homeLocation,
+      isCameraPositionFromMap: false,
+      areGesturesEnabled: true,
+      markers: Set<Marker>(),
+    );
+
     return AppState(
       homeLocationState: HomeLocationState(
-          ui: HomeLocationUi(isPromptVisible: true),
-          data: HomeLocationData(homeLocation: homeLocation)),
-      dynamicMapState: DynamicMapState(entities: Map()),
+        ui: HomeLocationUi(isPromptVisible: true),
+      ),
+      dynamicMapState: DynamicMapState(
+        entities: dynamicMapEntities,
+      ),
       spotState: SpotState(
         settings: spotSettings,
         selectedSpotId: null,

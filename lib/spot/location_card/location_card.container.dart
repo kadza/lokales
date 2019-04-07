@@ -17,6 +17,7 @@ class LocationCard extends StatelessWidget {
 
       return LocationCardView(
         location: viewModel.location,
+        clientId: viewModel.clientId,
       );
     });
   }

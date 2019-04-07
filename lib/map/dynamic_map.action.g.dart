@@ -13,19 +13,14 @@ SetCameraPositionAction _$SetCameraPositionActionFromJson(
       cameraPosition: json['cameraPosition'] == null
           ? null
           : CameraPosition.fromJson(
-              json['cameraPosition'] as Map<String, dynamic>));
+              json['cameraPosition'] as Map<String, dynamic>),
+      isCameraPositionFromMap: json['isCameraPositionFromMap'] as bool);
 }
 
 Map<String, dynamic> _$SetCameraPositionActionToJson(
         SetCameraPositionAction instance) =>
     <String, dynamic>{
       'clientId': instance.clientId,
-      'cameraPosition': instance.cameraPosition
+      'cameraPosition': instance.cameraPosition,
+      'isCameraPositionFromMap': instance.isCameraPositionFromMap
     };
-
-DisposeMapAction _$DisposeMapActionFromJson(Map<String, dynamic> json) {
-  return DisposeMapAction(clientId: json['clientId'] as String);
-}
-
-Map<String, dynamic> _$DisposeMapActionToJson(DisposeMapAction instance) =>
-    <String, dynamic>{'clientId': instance.clientId};

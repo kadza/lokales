@@ -1,25 +1,21 @@
 import 'package:redux/redux.dart';
 
 import 'dynamic_map.action.dart';
-import 'dynamic_map.model.dart';
 import 'dynamic_map.state.dart';
 
 final dynamicMapReducer = combineReducers<DynamicMapState>([
   TypedReducer<DynamicMapState, SetCameraPositionAction>(_setCameraPosition),
-  TypedReducer<DynamicMapState, DisposeMapAction>(_dispose),
 ]);
 
 DynamicMapState _setCameraPosition(
     DynamicMapState mapState, SetCameraPositionAction action) {
-  Map<String, CameraPosition> newMap = Map.from(mapState.entities);
-  newMap[action.clientId] = action.cameraPosition;
-
-  return DynamicMapState(entities: newMap);
-}
-
-DynamicMapState _dispose(DynamicMapState mapState, DisposeMapAction action) {
-  Map<String, CameraPosition> newMap = Map.from(mapState.entities);
-  newMap.remove(action.clientId);
+  Map<String, DynamicMapStateEntity> newMap = Map.from(mapState.entities);
+  newMap[action.clientId] = DynamicMapStateEntity(
+    cameraPosition: action.cameraPosition,
+    isCameraPositionFromMap: action.isCameraPositionFromMap,
+    markers: mapState.entities[action.clientId].markers,
+    areGesturesEnabled: mapState.entities[action.clientId].areGesturesEnabled,
+  );
 
   return DynamicMapState(entities: newMap);
 }

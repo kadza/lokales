@@ -17,9 +17,6 @@ HomeLocationState _setHomeLocation(
       ui: HomeLocationUi(
         isPromptVisible: state.ui.isPromptVisible,
       ),
-      data: HomeLocationData(
-        homeLocation: action.cameraPosition,
-      ),
     );
 
   return state;
@@ -30,9 +27,6 @@ HomeLocationState _setIsPromptVisible(
   return HomeLocationState(
     ui: HomeLocationUi(
       isPromptVisible: action.isPromptVisible,
-    ),
-    data: HomeLocationData(
-      homeLocation: state.data.homeLocation,
     ),
   );
 }

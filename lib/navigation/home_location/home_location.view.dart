@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 import './home_location.state.dart';
@@ -14,44 +12,35 @@ class HomeLocationView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: this._onWillPop,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.of(context).pinHomeLocation),
-        ),
-        body: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Stack(
-            children: () sync* {
-              yield DynamicMap(
-                clientId: clientId,
-                initialCameraPosition: viewModel.homeLocation,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context).pinHomeLocation),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Stack(
+          children: () sync* {
+            yield DynamicMap(
+              clientId: clientId,
+            );
+            yield Center(
+              child: Icon(Icons.location_on),
+            );
+            if (viewModel.isPromptVisible)
+              yield AlertDialog(
+                content:
+                    Text(AppLocalizations.of(context).pinHomeLocationPrompt),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text(AppLocalizations.of(context).close),
+                    onPressed: viewModel.hidePrompt,
+                  )
+                ],
               );
-              yield Center(
-                child: Icon(Icons.location_on),
-              );
-              if (viewModel.isPromptVisible)
-                yield AlertDialog(
-                  content:
-                      Text(AppLocalizations.of(context).pinHomeLocationPrompt),
-                  actions: <Widget>[
-                    FlatButton(
-                      child: Text(AppLocalizations.of(context).close),
-                      onPressed: viewModel.hidePrompt,
-                    )
-                  ],
-                );
-            }()
-                .toList(),
-          ),
+          }()
+              .toList(),
         ),
       ),
     );
-  }
-
-  Future<bool> _onWillPop() {
-    viewModel.setHomeLocation();
-    return Future.value(true);
   }
 }

@@ -8,9 +8,10 @@ part of 'spot.state.dart';
 
 SpotState _$SpotStateFromJson(Map<String, dynamic> json) {
   return SpotState(
-      entities: (json['entities'] as Map<String, dynamic>)?.map((k, e) =>
-          MapEntry(
-              k, e == null ? null : Spot.fromJson(e as Map<String, dynamic>))),
+      entities: (json['entities'] as Map<String, dynamic>)?.map(
+        (k, e) => MapEntry(
+            k, e == null ? null : Spot.fromJson(e as Map<String, dynamic>)),
+      ),
       settings: (json['settings'] as List)
           ?.map((e) => e == null
               ? null

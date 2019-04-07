@@ -10,3 +10,6 @@ List<Spot> selectAll(SpotStateContainer state) {
 
   return spotList;
 }
+
+Spot selectSpotById(SpotStateContainer state, String spotId) =>
+    state.spotState.entities[spotId];

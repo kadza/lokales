@@ -8,8 +8,12 @@ import '../spot.state.dart';
 @immutable
 class LocationCardViewModel {
   final CameraPosition location;
+  final String clientId;
 
-  LocationCardViewModel({@required this.location});
+  LocationCardViewModel({
+    @required this.location,
+    @required this.clientId,
+  });
 
   factory LocationCardViewModel.fromStore(
     Store<SpotStateContainer> spotStateStore,
@@ -19,6 +23,7 @@ class LocationCardViewModel {
 
     return LocationCardViewModel(
       location: selectedSpot.location,
+      clientId: selectedSpot.id,
     );
   }
 }

@@ -10,5 +10,6 @@ appcenter_android_task:
     - test
   environment:
     APPCENTER_API_TOKEN: ENCRYPTED[a0fbbee067ce40269af8b5b3854a7dd8890dcfea07d0f97fe5f0eb507c4cd19c5556a1663bc21aa611b9cb7e10edcebc]
+    GOOGLE_MAPS_API_KEY: ENCRYPTED[270bbc4d3e1780be6ba5705b6004104788b7cf070917d4872aa1d5ad886638875613fe15ca904ec2cd5323043b6f32f4]
   appcenter_upload_script:
-    - ci/build.sh 
+    - ci/build_apk.sh 

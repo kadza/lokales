@@ -8,9 +8,10 @@ part of 'media_gallery.state.dart';
 
 MediaGalleryState _$MediaGalleryStateFromJson(Map<String, dynamic> json) {
   return MediaGalleryState(
-      entities: (json['entities'] as Map<String, dynamic>)?.map((k, e) =>
-          MapEntry(k,
-              e == null ? null : Media.fromJson(e as Map<String, dynamic>))));
+      entities: (json['entities'] as Map<String, dynamic>)?.map(
+    (k, e) => MapEntry(
+        k, e == null ? null : Media.fromJson(e as Map<String, dynamic>)),
+  ));
 }
 
 Map<String, dynamic> _$MediaGalleryStateToJson(MediaGalleryState instance) =>
