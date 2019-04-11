@@ -117,6 +117,87 @@ class AppState
                 WindDirection.SE,
                 WindDirection.W
               ]),
+        ],
+        location: CameraPosition(
+            target: LatLng(
+              latitude: 54.761199,
+              longitude: 18.499220,
+            ),
+            zoom: spotMapZoomLevel),
+        windguruUrl: Uri.parse('https://www.windguru.cz/597178'),
+        windyUrl: Uri.parse('https://www.windy.com/54.760/18.510'),
+        description: 'chalupy',
+        titleImagePath: 'images/chalupy.jpg',
+      ),
+      '4': Spot(
+        id: '4',
+        name: 'Jeziorsko - Popów',
+        shortName: 'Popów',
+        icmImageLocation: RowColumn(
+          row: 416,
+          column: 206,
+        ),
+        characteristics: [
+          SpotCharacteristics(
+              name: "Popów",
+              isWaterDeep: true,
+              isWaterFlat: true,
+              windDirections: [
+                WindDirection.NW,
+                WindDirection.W,
+                WindDirection.SW,
+              ]),
+        ],
+        location: CameraPosition(
+            target: LatLng(
+              latitude: 51.831464,
+              longitude: 18.720990,
+            ),
+            zoom: spotMapZoomLevel),
+        windguruUrl: Uri.parse('https://www.windguru.cz/3644'),
+        windyUrl: Uri.parse('https://www.windy.com/51.828/18.715'),
+        description: 'jeziorsko-popow',
+        titleImagePath: 'images/popow.jpg',
+      ),
+      '5': Spot(
+        id: '5',
+        name: 'Jeziorsko - Zaspy',
+        shortName: 'Zaspy',
+        icmImageLocation: RowColumn(
+          row: 416,
+          column: 206,
+        ),
+        characteristics: [
+          SpotCharacteristics(
+              name: "Zaspy",
+              isWaterDeep: true,
+              isWaterFlat: true,
+              windDirections: [
+                WindDirection.NE,
+                WindDirection.E,
+                WindDirection.SE,
+              ]),
+        ],
+        location: CameraPosition(
+            target: LatLng(
+              latitude: 51.822617,
+              longitude: 18.668907,
+            ),
+            zoom: spotMapZoomLevel),
+        windguruUrl: Uri.parse('https://www.windguru.cz/3644'),
+        windyUrl: Uri.parse('https://www.windy.com/51.824/18.669'),
+        description: 'jeziorsko-zaspy',
+        titleImagePath: 'images/zaspy.jpg',
+      ),
+      '6': Spot(
+        id: '6',
+        name: 'Chałupy - Morze',
+        shortName: 'Chałupy morze',
+        icmImageLocation: RowColumn(
+          row: 332,
+          column: 206,
+        ),
+        characteristics: [
           SpotCharacteristics(
               name: "Morze",
               isWaterDeep: true,
@@ -130,14 +211,14 @@ class AppState
         ],
         location: CameraPosition(
             target: LatLng(
-              latitude: 54.761199,
-              longitude: 18.499220,
+              latitude: 54.765119,
+              longitude: 18.498728,
             ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/597178'),
-        windyUrl: Uri.parse('https://www.windy.com/54.760/18.510'),
-        description: 'chalupy',
-        titleImagePath: 'images/chalupy.jpg',
+        windyUrl: Uri.parse('https://www.windy.com/54.763/18.504'),
+        description: 'chalupy-morze',
+        titleImagePath: 'images/chalupy_morze.jpg',
       ),
     });
 
