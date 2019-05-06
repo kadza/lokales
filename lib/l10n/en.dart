@@ -18,6 +18,7 @@ class En {
     'chalupy-morze-description': '',
     'jeziorsko-zaspy-description': '',
     'jeziorsko-popow-description': '',
+    'jeziorsko-skarpa-description': '',
     'legend': 'Legend',
     'shallow-water': 'Shallow water',
     'deep-water': 'Deep water',

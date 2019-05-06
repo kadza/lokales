@@ -20,6 +20,7 @@ class Pl {
     'chalupy-morze-description': '',
     'jeziorsko-zaspy-description': '',
     'jeziorsko-popow-description': '',
+    'jeziorsko-skarpa-description': '',
     'legend': 'Legenda',
     'shallow-water': 'Płytka woda',
     'deep-water': 'Głeboka woda',

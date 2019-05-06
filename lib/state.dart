@@ -68,7 +68,8 @@ class AppState
             ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/4880'),
-        windyUrl: Uri.parse('https://www.windy.com/51.590/19.680'),
+        windyUrl: Uri.parse(
+            'https://www.windy.com/51.609/19.700?51.606,19.696,15,m:e5bagHY'),
         description: 'czarnocin',
         titleImagePath: 'images/czarnocin.png',
       ),
@@ -94,7 +95,8 @@ class AppState
             ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/32462'),
-        windyUrl: Uri.parse('https://www.windy.com/51.450/19.990'),
+        windyUrl: Uri.parse(
+            'https://www.windy.com/51.452/19.972?51.449,19.970,15,m:e4UagIs'),
         description: 'zalew-sulejowski',
         titleImagePath: 'images/karolinow.jpg',
       ),
@@ -125,7 +127,8 @@ class AppState
             ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/597178'),
-        windyUrl: Uri.parse('https://www.windy.com/54.760/18.510'),
+        windyUrl: Uri.parse(
+            'https://www.windy.com/54.761/18.500?54.760,18.501,15,m:fcragFZ'),
         description: 'chalupy',
         titleImagePath: 'images/chalupy.jpg',
       ),
@@ -155,12 +158,44 @@ class AppState
             ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/3644'),
-        windyUrl: Uri.parse('https://www.windy.com/51.828/18.715'),
+        windyUrl: Uri.parse(
+            'https://www.windy.com/51.832/18.721?51.831,18.721,15,m:e5yagGn'),
         description: 'jeziorsko-popow',
         titleImagePath: 'images/popow.jpg',
       ),
       '5': Spot(
         id: '5',
+        name: 'Jeziorsko - Skarpa',
+        shortName: 'Skarpa',
+        icmImageLocation: RowColumn(
+          row: 416,
+          column: 206,
+        ),
+        characteristics: [
+          SpotCharacteristics(
+              name: "Skarpa",
+              isWaterDeep: true,
+              isWaterFlat: true,
+              windDirections: [
+                WindDirection.NW,
+                WindDirection.W,
+                WindDirection.SW,
+              ]),
+        ],
+        location: CameraPosition(
+            target: LatLng(
+              latitude: 51.836375,
+              longitude: 18.7196389,
+            ),
+            zoom: spotMapZoomLevel),
+        windguruUrl: Uri.parse('https://www.windguru.cz/3644'),
+        windyUrl: Uri.parse(
+            'https://www.windy.com/51.836/18.720?51.833,18.720,15,m:e5yagGn'),
+        description: 'jeziorsko-skarpa',
+        titleImagePath: 'images/skarpa.png',
+      ),
+      '6': Spot(
+        id: '6',
         name: 'Jeziorsko - Zaspy',
         shortName: 'Zaspy',
         icmImageLocation: RowColumn(
@@ -185,12 +220,13 @@ class AppState
             ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/3644'),
-        windyUrl: Uri.parse('https://www.windy.com/51.824/18.669'),
+        windyUrl: Uri.parse(
+            'https://www.windy.com/51.824/18.669?51.821,18.669,15,m:e5xagGh'),
         description: 'jeziorsko-zaspy',
         titleImagePath: 'images/zaspy.jpg',
       ),
-      '6': Spot(
-        id: '6',
+      '7': Spot(
+        id: '7',
         name: 'Chałupy - Morze',
         shortName: 'Chałupy morze',
         icmImageLocation: RowColumn(
@@ -216,7 +252,8 @@ class AppState
             ),
             zoom: spotMapZoomLevel),
         windguruUrl: Uri.parse('https://www.windguru.cz/597178'),
-        windyUrl: Uri.parse('https://www.windy.com/54.763/18.504'),
+        windyUrl: Uri.parse(
+            'https://www.windy.com/54.764/18.503?54.762,18.502,15,m:fcragFZ'),
         description: 'chalupy-morze',
         titleImagePath: 'images/chalupy_morze.jpg',
       ),
