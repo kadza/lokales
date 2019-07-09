@@ -71,7 +71,7 @@ class AppState
         windyUrl: Uri.parse(
             'https://www.windy.com/51.609/19.700?51.606,19.696,15,m:e5bagHY'),
         description: 'czarnocin',
-        titleImagePath: 'images/czarnocin.png',
+        titleImagePath: 'images/czarnocin.jpg',
       ),
       '2': Spot(
         id: '2',
@@ -130,7 +130,7 @@ class AppState
         windyUrl: Uri.parse(
             'https://www.windy.com/54.761/18.500?54.760,18.501,15,m:fcragFZ'),
         description: 'chalupy',
-        titleImagePath: 'images/chalupy.jpg',
+        titleImagePath: 'images/chalupy6zatoka.jpg',
       ),
       '4': Spot(
         id: '4',
@@ -192,7 +192,7 @@ class AppState
         windyUrl: Uri.parse(
             'https://www.windy.com/51.836/18.720?51.833,18.720,15,m:e5yagGn'),
         description: 'jeziorsko-skarpa',
-        titleImagePath: 'images/skarpa.png',
+        titleImagePath: 'images/skarpa.jpg',
       ),
       '6': Spot(
         id: '6',
@@ -255,7 +255,7 @@ class AppState
         windyUrl: Uri.parse(
             'https://www.windy.com/54.764/18.503?54.762,18.502,15,m:fcragFZ'),
         description: 'chalupy-morze',
-        titleImagePath: 'images/chalupy_morze.jpg',
+        titleImagePath: 'images/chalupy6morze.jpg',
       ),
     });
 
@@ -297,21 +297,21 @@ class AppState
     Map<String, DynamicMapStateEntity> dynamicMapEntities = Map.fromEntries(
       spotMap.values.map(
         (spot) => MapEntry(
-              spot.id,
-              DynamicMapStateEntity(
-                cameraPosition: spot.location,
-                isCameraPositionFromMap: false,
-                areGesturesEnabled: false,
-                markers: Set<Marker>.from(
-                  [
-                    Marker(
-                      markerId: spot.id,
-                      position: spot.location.target,
-                    ),
-                  ],
+          spot.id,
+          DynamicMapStateEntity(
+            cameraPosition: spot.location,
+            isCameraPositionFromMap: false,
+            areGesturesEnabled: false,
+            markers: Set<Marker>.from(
+              [
+                Marker(
+                  markerId: spot.id,
+                  position: spot.location.target,
                 ),
-              ),
+              ],
             ),
+          ),
+        ),
       ),
     );
     dynamicMapEntities[clientId] = DynamicMapStateEntity(
