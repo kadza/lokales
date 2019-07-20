@@ -65,7 +65,7 @@ class _SpotListState extends State<SpotListPageView> {
                   AppLocalizations.of(context).spots,
                 ),
                 background: Image.asset(
-                  'images/tarifa.png',
+                  'images/tarifa.jpg',
                   fit: BoxFit.cover,
                 ),
                 centerTitle: false,

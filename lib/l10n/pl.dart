@@ -17,6 +17,10 @@ class Pl {
     'czarnocin-description':
         'Spot budzący największe kontrowersje, niektórzy go kochają, inni nienawidzą :p \n\nJest to mały akwen, lekko umieszczony w dole, wobec czego wiatr kręci. Jego głównymi zaletami jest to, że jest najbliżej Łodzi, jest płytko i można rozłożyć sprzęt na trawie. Z dodadtkowych atrakcji, często unosi się tu woń obornika z pobliskich pół. Wędkarze na wspomogaczach, dla kótrych jesteśmy główną atkracją dnia i zawsze chętnie pokrzyczą, pogrożą, pomachają lub uraczą nas wiązanką. Lepiej nie podpływać zbyt blisko.\n![](https://image.ibb.co/b5n9vF/czarnocin.png)\n\nW okolicach zielonego pkt. bliżej "plaży" jest polanka, na której można się rozłożyć. Jest też w miarę przyjemnie zejście do wody. Można spróbować rozłożyć się wyżej, zawsze trochę więcej miejsca w dół wiatru. Przy brzegu jakieś dobre 30m jest płytko, podchodzi się tak jak idzie zielona strzałka. Polecam buty, skarpety, czasem jakiś ostry kamień może się trafić.\n\nZ drugiej strony można wyjść przy tamie, jest tam trzcina, ale raczej niezbyt wysoka. Jest to dosyć ryzykowne, ponieważ są tam line napięcia, ale jak zniesie to jest to zawsze jakieś wyjście. Wodą tędy nie podchodziłem, zdecydowanie szybciej robi się głęboko, ale przy samych trzcinach może da radę. Za to na ladzie jest dróżka.',
     'chalupy-description': '',
+    'chalupy-morze-description': '',
+    'jeziorsko-zaspy-description': '',
+    'jeziorsko-popow-description': '',
+    'jeziorsko-skarpa-description': '',
     'legend': 'Legenda',
     'shallow-water': 'Płytka woda',
     'deep-water': 'Głeboka woda',
